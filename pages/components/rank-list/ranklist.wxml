@@ -1,0 +1,75 @@
+<view class="top_spot">
+	<view class="top_spotBox">
+		<block wx:for="{{topData}}" wx:for-index="index" wx:for-item="item" wx:key="item.id" wx:if="{{index>2?false:true}}">
+			<view class="top_spot_item {{index == 0 ?'secondStyle':index == 1 ? 'firstStyle':index == 2 ?'thirdStyle':''  }} "
+			 data-hot="{{item.hot}}" data-follow="{{item.follow}}" data-roomid="{{item.roomID}}" data-anchor="{{item.anchor}}"
+			 data-anchorid="{{item.anchorID}}">
+				<!-- <text class="crown">1</text> -->
+				<view class="top_spot_imgBox" bindtap="toColumnIndex" data-col="{{item.room_id}}">
+					<image class="top_spot_img" src="{{item.icon}}"></image>
+					<view class="light"></view>
+				</view>
+				<view class="column_name" style="color:{{item.column_color}}">{{item.name}}</view>
+				<view class="column_heat" wx:if="{{select == 1 && item.hot !== ''?true:false}}">热度:{{item.hot}}</view>
+				<view class="followersNum" wx:if="{{select == 2 && item.follow!==''?true:false}}" >{{item.follow}}人订阅</view>
+				<view class="orderStyle {{ item.is_follow == 1 ? 'ordered':'order_colbtn'}}" data-index="{{index}}" data-fol="{{item.is_follow}}"
+				  style="margin: 8rpx auto 0rpx;" data-columnid="{{item.room_id}}" bindtap="order_column1">{{item.is_follow == 1?'已订阅':'订阅'}}</view>
+			</view>
+		</block>
+	</view>
+	<view class="data_empty" wx:if="{{topData.length == 0? true:false}}">
+		<view class="top_spot_item secondStyle">
+			<view class="top_spot_imgBox">
+				<image class="top_spot_img" src=""></image>
+				<view class="light" style="font-size: 30rpx; line-height: 138rpx;">暂无数据</view>
+			</view>
+		</view>
+		<view class="top_spot_item firstStyle">
+			<view class="top_spot_imgBox">
+				<image class="top_spot_img" src=""></image>
+				<view class="light" style="font-size: 30rpx; line-height: 138rpx;">暂无数据</view>
+			</view>
+		</view>
+		<view class="top_spot_item thirdStyle">
+			<view class="top_spot_imgBox">
+				<image class="top_spot_img" src=""></image>
+				<view class="light" style="font-size: 30rpx; line-height: 138rpx;">暂无数据</view>
+			</view>
+		</view>
+	</view>
+	
+	<view class="count_down" wx:if="{{allData.length==0 ?false:true}}">
+		<!--    <view class="count_downName">距离榜单更新: <text class="count_downTime">{{hours}}小时{{minutes}}分{{seconds}}秒</text> </view>-->
+		<view class="count_downIcon" bindtap="showTips"></view>
+		<view class="tips" style="left:{{tipleft}},top:{{tiptop}}" wx:if="{{tipsStatus}}">{{tipsCon}}</view>
+	</view>
+	
+	<view class="list_surplus" wx:for="{{listData}}" wx:for-index="index" wx:for-item="item" wx:key="item.id"
+	 data-id="{{item.id}}" data-follow="{{item.follow}}" data-anchor="{{item.anchor}}" data-anchorid="{{item.anchorID}}"
+	 data-fmurl="{{item.Fm_url}}">
+		<view class="list_left">
+			<view class="heat_sort">{{index+4}}</view>
+			<view class="list_spot_imgBox" bindtap="toColumnIndex" data-col="{{item.room_id}}">
+				<image src="{{item.icon}}"></image>
+			</view>
+			<view class="column_info">
+				<view class="surplus_column_name">{{item.name}}</view>
+				<view class="column_pinlv_name">{{item.channel_name}}</view>
+				<view class="surplus_column_heat" wx:if="{{select == 1?true:false}}"><text class="heatIcon"></text>{{item.hot}}</view>
+				<view class="followersNum" wx:if="{{select == 2?true:false}}">{{item.follow}}人订阅</view>
+			</view>
+		</view>
+		<view class="list_right">
+			<!--      <view class="column_status">-->
+			<!--        <view class="column_point"></view>-->
+			<!--        <view class="column_statusTitle">直播中</view>-->
+			<!--      </view>-->
+			<!--      <text class="column_upOrdown"></text>-->
+			<view class="orderStyle {{ item.is_follow == 1 ? 'ordered':'order_colbtn'}}" data-index="{{index}}" data-fol="{{item.is_follow}}"
+			 data-columnid="{{item.room_id}}" bindtap="order_column2">{{item.is_follow == 1?'已订阅':'订阅'}}</view>
+		</view>
+	</view>
+
+
+
+</view>

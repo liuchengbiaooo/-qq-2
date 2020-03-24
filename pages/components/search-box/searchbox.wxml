@@ -1,0 +1,25 @@
+<!--pages/components/search-box/searchbox.wxml-->
+<view class="search">
+	<view class="search_btn">
+		<view class="search_btn_icon">
+			<image src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/sous.png"></image>
+		</view>
+		<view class="search_btn_input">
+			<input type="text" 
+				placeholder="搜索电台或电台名称"  
+				confirm-type='search' 
+				adjust-position='{{true}}' 
+				maxlength='{{30}}' 
+				value="{{content}}"
+				focus="{{true}}" 
+				bindinput="input"
+				bindconfirm='sendCon'/>
+				<view bindtap='cancel' class="search_btn_input_cancel" wx:if="{{content!=''}}">
+					<image src="../../static/delete.png"></image>
+				</view>
+		</view>
+	</view>
+	<view class="search_cancel" bindtap="back">
+		取消
+	</view>
+</view>

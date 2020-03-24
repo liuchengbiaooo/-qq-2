@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+	  "nav-bar": "/pages/components/nav-bar/navbar",
+	  "search-box":"/pages/components/search-box/searchbox",
+	  "zbhd-box":"/pages/components/zbhd-box/zbhdbox",
+	  "search-item":"/pages/components/search-item/searchItem"
+  }
+}

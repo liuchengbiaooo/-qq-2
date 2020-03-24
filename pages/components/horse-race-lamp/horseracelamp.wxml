@@ -1,0 +1,11 @@
+<!--pages/components/horse-race-lamp/horseracelamp.wxml-->
+<view class="horseracelamp">
+      <view class="horseracelamp_content">
+        <text>恭喜“lsh74364482”中奖，获得洗衣机一台</text>
+        <text style="display: inline-block; width: 5em;"></text>
+        <text>恭喜“lsh74364482”中奖，获得洗衣机一台</text>
+        <text style="display: inline-block; width: 5em;"></text>
+        <text>恭喜“lsh74364482”中奖，获得洗衣机一台</text>
+        <text style="display: inline-block; width: 5em;"></text>
+      </view>
+</view>

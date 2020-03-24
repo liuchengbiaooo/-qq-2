@@ -1,0 +1,90 @@
+/* pages/components/personal-box/personalbox.wxss */
+.personalbox{
+	width:100%;
+	height:auto;
+	min-height:300rpx;
+	background-color:#FFFFFF;
+	position: absolute;
+	left:0;
+	bottom:0;
+	z-index:100000;
+}
+.personalbox_top{
+	position: absolute;
+	left:50%;
+	transform:translateX(-50%);
+	top:-70rpx;
+	height:140rpx;
+	width:140rpx;
+	background-color: #FFFFFF;
+	border-radius:50%;
+	padding: 4rpx;
+	box-sizing: border-box;
+}
+.personalbox_top>image{
+	width:100%;
+	height:100%;
+	border-radius:50%;
+}
+/* 名字 */
+.personalbox_name{
+	color: #000000;
+	font-size: 30rpx;
+	line-height: 40rpx;
+	text-align: center;
+	margin-top:90rpx;
+}
+/* 个签 */
+.personalbox_geqian{
+	font-size:24rpx;
+	color:#FFB133;
+	line-height:40rpx;
+	text-align: center;      
+	margin-top:20rpx;
+}
+/* id */
+.personalbox_id{
+	width:100%;
+	line-height:40rpx;
+	text-align: center;
+	font-size: 24rpx;
+	color: #888888;
+	margin-top:20rpx;
+}
+/* 等级 */
+.personalbox_title{
+	width:100%;
+	text-align: center;
+	margin-top:20rpx;
+}
+.personalbox_title_item{
+	display: inline-block;
+	height:36rpx;
+	width:74rpx;
+	background-color: #61B0E7;
+	color: #FFFFFF;
+	text-align: center;
+	line-height:36rpx;
+	font-size:24rpx;
+}
+.title_item{
+	margin-right:20rpx;
+	background-color:#6EDB51;
+}
+/* 下方按钮 */
+.personalbox_bottom{
+	width:100%;
+	text-align: center;
+	margin-top:80rpx;
+	display: flex;
+}
+.personalbox_bottom_item{
+	flex: 1;
+	height:100rpx;
+	background-color: #FFB133;
+	color: #FFFFFF;
+	text-align: center;
+	line-height:100rpx;
+	font-size:28rpx;
+    box-sizing: border-box;
+}

@@ -1,0 +1,61 @@
+<!--pages/components/personal-box/personalbox.wxml-->
+<view class="personalbox">
+	<!-- 栏目 -->
+	<block wx:if="{{personalboxData.roomID}}">
+			<!-- 头像 -->
+			<view class="personalbox_top">
+				<image src="{{personalboxData.headimg}}"></image>
+			</view>	
+			<!-- 栏目名字 -->
+			<view class="personalbox_name">
+				{{personalboxData.name}}
+			</view>
+			<!-- 房间id -->
+			<view class="personalbox_id">{{personalboxData.roomID}}</view>
+			<!-- 频道信息 -->
+			<view class="personalbox_id">
+				{{personalboxData.channel_name}}
+			</view>
+			<!-- 主持人信息 -->
+			<view class="personalbox_name">
+				{{personalboxData.anchor}}
+			</view>
+			<view class="personalbox_bottom">
+				<view bindtap='atBtn' class="personalbox_bottom_item">@ta</view>
+				<view bindtap='gozhuyeBtn' class="personalbox_bottom_item">主页</view>
+			</view>
+	</block>
+	<!-- 在线 -->
+	<block wx:if="{{personalboxData.userID}}">
+			<!-- 头像 -->
+			<view class="personalbox_top">
+				<image src="{{personalboxData.avatar}}"></image>
+			</view>	
+			<!-- 名字 -->
+			<view class="personalbox_name">
+				{{personalboxData.nick}}
+			</view>
+			<!-- 房间id -->
+			<view class="personalbox_id">{{personalboxData.userID}}</view>
+			<view class="personalbox_bottom">
+			  <!-- 游客 -->
+				<view wx:if="{{personalboxData.nick}}" bindtap='atBtn' class="personalbox_bottom_item">@ta</view>
+			</view>
+	</block>
+	<!-- 个人 -->
+	<block wx:if="{{personalboxData.usId}}">
+			<!-- 头像 -->
+			<view class="personalbox_top">
+				<image src="{{personalboxData.avatar}}"></image>
+			</view>	
+			<!-- 名字 -->
+			<view class="personalbox_name">
+				{{personalboxData.nick}}
+			</view>
+			<!-- 房间id -->
+			<view class="personalbox_id">{{personalboxData.usId}}</view>
+			<view class="personalbox_bottom" wx:if="{{personalboxData.usId!=0}}">
+				<view bindtap='atBtn' class="personalbox_bottom_item">@ta</view>
+			</view>
+	</block>
+</view>

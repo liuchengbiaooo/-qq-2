@@ -1,0 +1,76 @@
+<!-- pages/components/notice-box/noticebox.wxml -->
+<!-- 点歌 -->
+<block wx:if="{{diange}}">
+	<view class="notice notice_diange">
+		<view class="notice_item">祝福点歌墙</view>
+		<view class="notice_djs">倒计时：<text class="notice_tiem">{{endtime}}</text></view>
+		<view class="notice_diange_centen">
+			<textarea maxlength='{{200}}' value="{{value}}" bindinput="dginput" placeholder="填写祝福，和你想要点的歌说的话，最多可以填写200个字."></textarea>
+		</view>
+		<view class="notice_bottom">
+			<view bindtap="diangeBtn" class="notice_diange_btn">确认</view>
+			<view class="notice_diange_quan">
+				<image src="../../static/diangeka.png" />
+				<text>{{songcard}}</text>
+			</view>
+		</view>
+		<!-- 点歌卡 -->
+		<view wx:if="{{noSongcard}}" class="diangeka">
+			<view class="diangeka_no">点歌卡不足</view>
+			<view bindtap="huodeBtn" class="spBtn">去获的</view>
+		</view>
+	</view>
+</block>
+
+<!-- 投票 -->
+<view wx:if="{{toupiao}}" class="notice notice_toupiao">
+	<view class="notice_item">投票</view>
+	<view class="notice_djs">倒计时：<text class="notice_tiem">{{endtime}}</text></view>
+	<!-- 票数 -->
+	<view class="notice_jdt_num" wx:if="{{squareText=='支持蓝方'&& fanfangText=='支持红方'}}"></view>
+	<view class="notice_jdt_num" wx:else>
+		<text style="color:#3393F9;">{{square}}</text><text style="color:#FA326E;">{{fanfang}}</text>
+	</view>
+	<view class="notice_toupiao_play">
+		<view class="notice_toupiao_lanfan {{squareText=='已支持蓝方'?'notice_toupiao_public':''}}" bindtap="toupiao1Btn">
+			<image wx:if="{{fanfangText=='已支持红方'}}" src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/vote0003.png"></image>
+			<image wx:else src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/vote0001.png"></image>
+			<text wx:if="{{plusoneShow1}}" class="plusOne">+1</text>
+		</view>
+		<view class="notice_jdt">
+			<block wx:if="{{squareText=='支持蓝方'&& fanfangText=='支持红方'}}">
+				<view style="width:50%;background-color:#3393F9;"></view>
+				<view style="width:50%;background-color:#FA326E;"></view>
+			</block>
+			<block wx:else>
+				<view style="width:{{squareNum}}%;background-color:#3393F9;"></view>
+				<view style="width:{{consideNum}}%;background-color:#FA326E;"></view>
+			</block>
+		</view>
+		<view class="notice_toupiao_red {{fanfangText=='已支持红方'?'notice_toupiao_public':''}}" bindtap="toupiao2Btn">
+			<image wx:if="{{squareText=='已支持蓝方'}}" src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/vote0002.png"></image>
+			<image wx:else src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/vote0004.png"></image>
+			<text wx:if="{{plusoneShow2}}" class="plusOne">+1</text>
+		</view>
+	</view>
+	<!-- 文字 -->
+	<view class="notice_jdt_num" style="padding:0 60rpx;">
+		<text style="color:#3393F9;">{{squareText}}</text><text style="color:#FA326E;">{{fanfangText}}</text>
+	</view>
+	<!-- 关闭按钮 -->
+	<view class="notice_bottom">
+		<view bindtap="guangbiBtn" class="notice_bottom_guanbi">关闭</view>
+	</view>
+</view>
+
+<!-- 竞猜 -->
+<view wx:if="{{jinagcai}}" class="notice notice_jinagcai">
+	<view class="notice_item">答题板</view>
+	<view class="notice_djs">倒计时：<text class="notice_tiem">{{endtime}}</text></view>
+	<view class="notice_diange_centen">
+		<textarea maxlength='{{20}}' value="{{value}}" bindinput="jcinput" placeholder="填写答案,最多可以填写20个字."></textarea>
+	</view>
+	<view class="notice_bottom">
+		<view bindtap="jingcaiBtn" class="notice_bottom_guanbi">确认</view>
+	</view>
+</view>

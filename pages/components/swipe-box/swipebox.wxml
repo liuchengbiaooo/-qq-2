@@ -1,0 +1,16 @@
+<!--pages/components/swipe-box/swipebox.wxml-->
+
+<swiper class="swiper" 
+		indicator-dots="{{true}}" 
+		autoplay="{{true}}" 
+		interval="3000" 
+		indicator-color="#FFFFFF" 
+		indicator-active-color="#3EC4B3" 
+		circular='{{true}}' 
+		duration="500">
+		<block wx:for="{{advertArr}}" wx:key="{{index}}">
+			<swiper-item>
+				<image bindtap="swipeBtn" data-item="{{item}}" class="swiper-item" src="{{item.a_img}}"></image>
+			</swiper-item>
+		</block>
+</swiper>

@@ -1,0 +1,20 @@
+<view wx:for="{{itemData}}" wx:for-index="index" wx:for-item="item" wx:key="item.id"  class="itemBox {{index == 0?'':'hideShawer'}}">
+  <view class="itemimgBox" data-col="{{item.room_id}}" bindtap="goColumn">
+    <image class="itemImg" src="{{item.icon}}"></image>
+    <view class="radioStatus" >{{item.live_status == 1?"直播中":item.live_status == 2?"可预告":item.live_status == 0?"未开播":""}}</view>
+<!--    <view class="radioStatus" wx:if="{{item.live_status == 1? true :item.live_status == 2?true:item.live_status == 0 ? false :''}}">{{item.live_status == 1?"直播中":item.live_status == 2?"可预告":item.live_status == 0?"未开播":""}}</view>-->
+  </view>
+  <view class="foot_column_info">
+    <view class="foot_column_title"><text>{{item.name}}</text></view>
+    <view class="foot_pinlv_station">
+      <view class="foot_column">{{item.channel_name}}</view>
+      <view class="item_stationBox">{{item.channel_name}}</view>
+    </view>
+    <view class="foot_player">主播: <text class="authortext">{{item.anchor}}</text></view>
+    <view class="foot_heat" wx:if="{{showheat}}">
+      <text class="listen_heat"></text>
+      {{item.hot}}
+    </view>
+  </view>
+  <view class="foot_listen" wx:if="{{item.live_status == 0?false:true}}" data-item="{{item.room_id}}" data-id="{{item.room_id}}" data-status="{{item.live_status}}" bindtap="yuyueColumn">{{item.live_status == 1?"参与互动":item.live_status == 2 && item.is_subscribe == 1?'已预约':item.live_status == 2 && item.is_subscribe == 0?'预约直播':''}}</view>
+</view>

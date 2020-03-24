@@ -1,0 +1,79 @@
+<!--pages/me/me.wxml-->
+<view class="content">
+	<nav-bar background='url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/bglv.png) repeat-x'
+	 color="#FFFFFF" title="我的"></nav-bar>
+	<view class="fm" style="top:{{navHeight}}px;">
+		<include src="../../utils/refreshHeaderView.wxml" />
+		<include src="../../utils/loadMoreFooterView.wxml" />
+		<scroll-view class="scroll_container" scroll-y="true" style="position:absolute;top:{{loadMoreHeight == 0? refreshHeight:-loadMoreHeight}}px;bottom:{{loadMoreHeight}}px;left:0;right:0;"
+		 bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end">
+			<!-- 登入了 -->
+			<view class="fm_content" wx:if="{{loginStatus}}" bindtouchmove="move">
+				<!-- 用户信息 -->
+				<view class="userInfoBox">
+					<view class="userInfo_left">
+						<view class="userheadIconBox">
+							<image class="userheadIcon" src="{{userInfo.headurl}}"></image>
+						</view>
+						<view class="nick_idBox">
+							<view class="user_nickname">{{userInfo.nickname}}</view>
+							<view class="address">{{userInfo.province}} {{userInfo.city}}</view>
+							<view class="user_id">ID:{{userInfo.ID}}</view>
+						</view>
+					</view>
+					<view class="user_dataBox" data-type="order" bindtap="showMore">
+						<view class="user_dataIcon" data-type="order"></view>
+						<view class="user_following" data-type="order"> 订阅:
+							<text class="userNum_style">{{follow}}</text>
+						</view>
+						<!-- <view class="user_followers">粉丝
+						  <text class="userNum_style">8888 万</text>
+					</view> -->
+					</view>
+				</view>
+				<!-- 功能区域 -->
+				<view class="functionView">
+					<view class="functionItem" wx:for="{{functionData}}" wx:key="{{index}}" data-item="{{item}}" bindtap="functionItemBtn">
+						<view class="functionItem_image">
+							<image src="{{item.icon}}"></image>
+						</view>
+						<view class="functionItem_text">
+							{{item.name}}
+						</view>
+					</view>
+				</view>
+				<!-- 观看历史 -->
+				<view class="viewContentBox">
+					<view class="viewTitle">
+						<view class="myfootprint">
+							<text class="footprintIcon"></text> 我的历史</view>
+						<!--<view class="viewMore" bindtap="showMore" data-type="history">{{viewData.total}}
+							<text class="viewMoreIcon"></text>
+						</view>-->
+					</view>
+					<view class="viewContent_Scroll">
+						<view class="itemList">
+							<!-- 直播盒子 -->
+							<block wx:for="{{viewData}}" wx:key='{{index}}'>
+								<zbhd-box zbhd-show="{{zbhdShow}}" item-data="{{item}}" bind:goRoom='onGoRoom'></zbhd-box>
+							</block>
+							<view wx:if="{{viewData.length==0}}" class="append">没有历史记录</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<!-- 没有登入 -->
+			<view class="fm_content" wx:if="{{!loginStatus}}">
+				<view class="loginBtnBox">
+					<view class="logoBox">
+						<view class="logo"></view>
+						<view class="login_desc">
+							<text style="margin-right: 10rpx;">听你想听</text>
+							<text style="margin-left: 10rpx">尽在其中</text></view>
+					</view>
+					<button open-type="getUserInfo" bindgetuserinfo="toLogin" class="loginBtn">登录</button>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+</view>

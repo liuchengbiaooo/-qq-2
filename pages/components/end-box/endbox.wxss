@@ -1,0 +1,80 @@
+/* pages/components/end-box/endbox.wxss */
+.endbox{
+	width:100%;
+	height:400rpx;
+	background:rgba(0,0,0,.85);
+	padding-top:20rpx;
+	box-sizing: border-box;
+}
+.endbox_text{
+	color:#ECECEC;
+	font-size:32rpx;
+	width:100%;
+	text-align: center;
+	width:100%;
+	margin-bottom:20rpx;
+	border-radius:10rpx;
+}
+.endbox_image{
+	height:154rpx;
+	width:154rpx;
+	margin:20rpx auto;
+	display: block;
+}
+.endbox_name{
+	height:40rpx;
+	line-height:40rpx;
+	color: #ECECEC;
+	font-size:24rpx;
+	width:100%;
+	text-align: center;
+	margin-bottom:10rpx;
+}
+/* 关注 */
+.player_top_left_follow {
+	width: 85rpx;
+	height: 40rpx;
+	background-color: #FFD620;
+	font-size: 20rpx;
+	color: #FFFFFF;
+	border-radius: 18rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 22rpx;
+	position: relative;
+	margin: 0 auto;
+}
+
+/* 已关注 */
+.player_top_left_follow_act {
+	background-color: #ededed;
+	color: #353535;
+}
+
+/* 授权按钮 */
+.player_top_left_follow>button {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	z-index: 100;
+}
+.login_border{
+    font-size:22rpx;
+	color:#B8B7B7;
+	margin-top:10rpx;
+	text-align: center;
+	height:30rpx;
+	line-height:30rpx;
+}
+.login_border>view{
+	display:inline-block;
+	width:50rpx;
+	height:2rpx;
+	background-color:#B8B7B7;
+	margin-bottom:5rpx;
+}

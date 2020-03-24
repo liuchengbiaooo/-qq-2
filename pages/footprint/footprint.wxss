@@ -1,0 +1,7 @@
+/* pages/footprint/footprint.wxss */
+@import '../../utils/refreshView.wxss';
+
+.footItemBox{
+  padding-top: 30rpx;
+}
+.append{display:block;text-align:center;padding: 25rpx 0; font-size: 30rpx;}

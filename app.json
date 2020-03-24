@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+	"pages/play/play",
+	"pages/me/me",
+    "pages/list/list",
+    "pages/search/search",
+    "pages/datapage/datapage",
+	"pages/account/account",
+	"pages/consumption/consumption",
+    "pages/footprint/footprint"
+  ],
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#3EC4B3",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现",
+        "iconPath": "pages/static/bar_2.png",
+        "selectedIconPath": "pages/static/bar_2_2.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "排行",
+        "iconPath": "pages/static/bar_1.png",
+        "selectedIconPath": "pages/static/bar_1_1.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "pages/static/bar_3.png",
+        "selectedIconPath": "pages/static/bar_3_3.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

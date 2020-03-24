@@ -1,0 +1,4 @@
+<view class="loadMore-block" style="height:{{loadMoreHeight}}px"> 
+        <text  class="loading-text" >{{loading_text}}</text> 
+        <image  class="{{loading?'roate':(pull?'pull':'')}}" src="{{loading?'https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/icon_loading.png':'https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/icon_arrow.png'}}"></image>
+</view> 

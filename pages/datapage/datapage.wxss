@@ -1,0 +1,365 @@
+/* pages/datapage/datapage.wxss */
+.scroll_columnIndex{
+  width: 100%;
+  padding-bottom: 100rpx;
+  height:100%;
+  box-sizing:border-box;
+}
+.pageTop {
+  width: 100%;
+  height: 434rpx;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/pageTop.png) no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+}
+
+.pageImgBox {
+  width: 154rpx;
+  height: 154rpx;
+  border-radius: 10rpx;
+  display: inline-block;
+  margin-top: 34rpx;
+}
+
+.pageImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+  border: 1px solid #c8c8c8;
+}
+
+.pageInfo {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pageName {
+  font-size: 30rpx;
+  color: #dcdcdc;
+  font-weight: 600;
+  margin-top: 2rpx;
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+  margin: 2rpx auto 0rpx;
+}
+
+.fmID {
+  font-size: 22rpx;
+  color: #bebebe;
+  /* margin-top: 10rpx; */
+}
+
+.belong_pinlv {
+  /*width: 118rpx;*/
+  /*height: 36rpx;*/
+  /* line-height: 36rpx; */
+  max-width: 180rpx;
+  margin: 6rpx auto 0;
+  font-size: 20rpx;
+  color: #dfbc07;
+  border: 1px solid #dfbc07;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rpx 8rpx;
+  text-align: center;
+}
+
+.follow_area {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rpx;
+}
+
+.followers, .area ,.column_heat{
+  font-size: 18rpx;
+  color: #9c9b9b;
+  display: inline-block;
+}
+.column_heat{
+  margin-right: 20rpx;
+}
+.column_time{
+  font-size: 20rpx;
+  color: #797979;
+  margin-top: 4rpx;
+}
+.followers{
+ margin-right: 10rpx;
+}
+
+.player {
+  font-size: 20rpx;
+  color: #bbb;
+  margin: 8rpx auto 0;
+  width: 200rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.page_introduce {
+  width: 91.86666%;
+  font-size: 22rpx;
+  color: #888;
+  margin: 0 auto;
+  background: #d2d2d2;
+  padding: 28rpx 38rpx 28rpx 38rpx;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  margin-top: 25rpx;
+  text-indent: 28rpx;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.pagetitle {
+  font-size: 24rpx;
+  color: #595959;
+  padding-left: 18rpx;
+  box-sizing: border-box;
+  font-weight: 600;
+}
+
+.pageDetail {
+  width: 91.86666%;
+  background: #dbdbdb;
+  border-radius: 12rpx;
+  margin: 24rpx auto 0;
+  padding: 22rpx 0 22rpx 0rpx;
+}
+
+.pageTime {
+  color: #e6e6e6;
+  font-size: 24rpx;
+  background: #adadad;
+  width: 556rpx;
+  /*height: 70rpx;*/
+  margin: 22rpx auto 0;
+  border-radius: 36rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.playerItem {
+  width: 94.9201%;
+  margin: 0 auto;
+  background: #f7f7f7;
+  box-sizing: border-box;
+  padding: 22rpx 0 20rpx 16rpx;
+  display: flex;
+  border-bottom: 1px solid #aeaeae;
+  border-radius: 12rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.playeritemImgBox {
+  width: 114rpx;
+  height: 114rpx;
+  border-radius: 12rpx;
+  flex: none;
+}
+
+.playeritemImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+  border: 1px solid #c8c8c8;
+}
+
+.playerList {
+  margin-top: 18rpx;
+}
+
+.playerName {
+  font-size: 28rpx;
+  color: #5a5959;
+  max-width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+
+.column_desc {
+  font-size: 22rpx;
+  color: #787878;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 10rpx;
+  width: 459rpx;
+}
+
+.pageDesc {
+  margin-left: 26rpx;
+}
+.follow{
+  width: 100%;
+  height:80rpx;
+  position:fixed;
+  bottom:0;
+  left:0;
+  border-top: 1px solid #f5f5f5;
+}
+.broadcast_title{
+  width: 244rpx;
+  height: 90rpx;
+  background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/broadcast_title.png") no-repeat;
+  background-size: 100% 100%;
+  margin: 14rpx auto 0;
+}
+
+.column_status{
+  display: flex;
+  justify-content: space-between;
+  width: 84.5333%;
+  height: 66rpx;
+  /*line-height: 66rpx;*/
+  box-sizing: border-box;
+  padding: 8rpx 0 8rpx 45rpx;
+  margin: 26rpx auto 26rpx;
+  border-radius: 33rpx;
+  overflow: hidden;
+}
+.column_status_live{
+  background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/column_live.png") no-repeat;
+  background-size: 100% 100%;
+  color: #d58383;
+}
+.column_status_yuyue{
+  background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/column_yuyue.png") no-repeat;
+  background-size: 100% 100%;
+  color: #597e4e;
+}
+
+.columnTitle_commonStyle{
+  width: 278rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-size: 20rpx;
+}
+.column_statusTitle_live{
+  color: #d58383;
+}
+.column_statusTitle_yuyue{
+  color: #597e4e;
+}
+.column_status_time{
+  color: #597e4e;
+  font-size: 18rpx;
+}
+.column_status_timefont{
+  color: #878787;
+  font-size: 18rpx;
+
+}
+.column_statusHeat{
+  font-size: 18rpx;
+  color: #cc825e;
+  line-height: 30rpx;
+}
+.heatFont{
+  color: #888888;
+  font-size: 18rpx;
+}
+.column_btn{
+  /*width: 98rpx;*/
+  height: 52rpx;
+  background: #f1e900;
+  color: #585858;
+  font-size: 22rpx;
+  border-radius: 33rpx;
+  text-align: center;
+  line-height: 52rpx;
+  padding:0 14rpx;
+}
+.column_statusRight{
+  margin-right: 12rpx;
+}
+.column_content{
+  display: flex;
+}
+.column_listen_btn{
+  width: 118rpx;
+  height: 52rpx;
+  background: #e7d900;
+  font-size: 22rpx;
+  color: #585858;
+  text-align: center;
+  line-height: 52rpx;
+  border-radius: 30rpx;
+  margin-right: 56rpx;
+  /*font-weight: bold;*/
+  padding: 0 14rpx;
+}
+.column_author{
+  max-width: 140px;
+  font-size: 22rpx;
+  color: #797979;
+  margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient:vertical;
+
+}
+.titleBox{
+  display: flex;
+  justify-content: space-between;
+}
+.titleright{
+  font-size: 18rpx;
+  color: #848484;
+  margin-right: 56rpx;
+}
+.pinlvList_heat{
+  font-size: 22rpx;
+  color: #797979;
+}
+.order_column{
+  width: 116rpx;
+  height: 40rpx;
+  font-size: 22rpx;
+  margin: 8rpx auto 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20rpx;
+  position: relative;
+}
+.order_column>button,.column_btn>button{
+	width:100%;
+	height:100%;
+	opacity:0;
+	position: absolute;
+	left:0;
+	top:0;
+}
+.order_colbtn{
+  color: #585858;
+  background: #e7d900;
+}
+.ordered{
+  background: #b2b2b2;
+  color: #959595;
+}
+.append{display:block;text-align:center;padding: 25rpx 0; font-size: 30rpx;}

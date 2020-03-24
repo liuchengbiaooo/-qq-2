@@ -1,0 +1,24 @@
+/* pages/components/horse-race-lamp/horseracelamp.wxss */
+@keyframes kf-marque-animation{ 0% { transform: translateX(0); } 100% { transform: translateX(-33.3%); } }
+.horseracelamp{
+    width: 100%;
+    height: 100%;
+    line-height: 40rpx;
+    background: rgba(18, 18, 18, .4);
+    border: none;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+    position: relative;
+    font-size: 28rpx;
+	color:#DABC55;
+}
+.horseracelamp .horseracelamp_content{
+    display: inline-block;
+    position: relative;
+    padding-right: 0px;
+    animation: kf-marque-animation 11.3s linear infinite;
+    white-space: nowrap;
+}

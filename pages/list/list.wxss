@@ -1,0 +1,3 @@
+
+@import '../../utils/refreshView.wxss';
+.append{display:block;text-align:center;padding: 25rpx 0; font-size: 30rpx;}

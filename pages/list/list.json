@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+      "nav-bar": "/pages/components/nav-bar/navbar",
+      "list-nav": "/pages/components/list-nav/listnav",
+      "rank-list": "/pages/components/rank-list/ranklist"
+  }
+}

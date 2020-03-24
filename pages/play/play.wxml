@@ -1,0 +1,328 @@
+<!--pages/play/play.wxml-->
+<view class="content">
+	<view catchtap='bgBtn' wx:if="{{bgShow}}" class="content_bg"></view>
+	<nav-bar background='#fff' back="{{true}}" home="{{homeBack}}" title="电台直播" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></nav-bar>
+	<!-- 音频 -->
+	<view class="fm_audio_show">
+		<view class="fm_audio_bg">
+			<image src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/audio.gif"></image>
+		</view>
+		<view class="fm_audio_bottom">
+			<!-- 静音按钮 -->
+			<view class="fm_audio_left" bindtap="mutedBtn">
+				<image wx:if="{{!muted}}" src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/stop.png"></image>
+				<image wx:else src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/play.png"></image>
+			</view>
+			<view class="fm_audio_jdt">
+				<slider bindchange="sliderChange" bindchanging="sliderChanging" step="12" block-size="20" value="{{sliderValue}}"
+				 backgroundColor="#A8A8A8" activeColor="#FFEE83" block-color="#FFEE83" />
+			</view>
+			<view class="fm_audio_time">{{newTime}}</view>
+		</view>
+	</view> 
+	<!-- fm -->
+	<view class="fm" style="top:{{navHeight}}px;" animation="{{animationRo}}">
+		<!-- 直播结束出现 -->
+		<view class="end-box" wx:if="{{endBoxShow}}">
+			<view class="end-box_big">
+				<!-- 结束框 -->
+				<end-box item-data="{{item}}" follow-show="{{followShow}}" bind:followbtn='followbtn'></end-box>
+				<view class="end-box_wap">
+					<scroll-view scroll-y="{{true}}" style="width:100%;height:100%;">
+						<block wx:for="{{rankArr}}" wx:key="index">
+							<zbhd-box zbhd-show="{{zbhdShow}}" item-data="{{item}}" bind:goRoom='onGoRoom'></zbhd-box>
+						</block>
+					</scroll-view>
+				</view>
+				<view class="end-box_bottom" wx:if="{{endboxbottomShow}}">
+					<view class="end-box_bottom_left">
+						<view class="end-box_bottom_left_gou" bindtap="actshowBtn">
+							<image wx:if="{{actShow}}" src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/gou.png"></image>
+						</view>
+						<view class="end-box_bottom_left_text">订阅所有热播节目</view>
+					</view>
+					<view class="end-box_bottom_right" bindtap="rightshowBtn">关闭</view>
+				</view>
+			</view>
+		</view>
+		<!-- 开始你的表演 -->
+		<view class="fm_content">
+			<!-- 直播界面 -->
+			<!-- 直播流 -->
+			<video wx:if="{{videoShow}}" id="videoplayer" style="height:5rpx;width:5rpx;position:absolute;top:0rpx;left:-10rpx;"
+			 src="{{item.Fm_urls}}" custom-cache="{{false}}" muted="{{muted}}" bindplay="videoPlay" bindwaiting="videoWaiting" binderror="videoError"
+			 bindtimeupdate="videoUpdate" bindpause='videoPause'></video>
+			<!-- 跑马灯效果 -->
+			<!--<view class="player_horse">
+			      <horse-race-lamp></horse-race-lamp>
+			</view> -->
+			<!-- 个人信息盒子 -->
+			<!-- <personal-box bind:atBtn="onAtBtn" bind:gozhuyeBtn="onGozhuyeBtn" personalbox-data="{{personalboxData}}" wx:if="{{personalboxShow}}"></personal-box> -->
+			<!-- 点歌投票竞猜盒子 -->
+			<notice-box bind:diangeBtn="onDiangeBtn" bind:toupiao1Btn="onToupiao1Btn" bind:toupiao2Btn="onToupiao2Btn"
+			 bind:guangbiBtn="onGuangbiBtn" bind:jingcaiBtn="onJingcaiBtn" square-num="{{SquareNum}}" square="{{square}}"
+			 fanfang="{{fanfang}}" conside-num="{{ConsideNum}}" diange="{{diangeShow}}" toupiao="{{toupiaoShow}}" jinagcai="{{jingcaiShow}}"
+			 songcard="{{song_card}}" endtime="{{end_time}}" no-songcard="{{noSongcard}}" square-text="{{squareText}}"
+			 fanfang-text="{{fanfangText}}">
+			</notice-box>
+			<block wx:if="{{liveShow}}">
+				<!-- 当有点歌置顶的时候 -->
+				<block wx:if="{{!tipShow}}">
+					<!-- 话题弹框 -->
+					<view wx:if='{{huatiShow}}' class="player_huati_box">
+						<view class="player_huati_box_left">
+							<image src="../static/huati2.png"></image>
+						</view>
+						<view class="player_huati_box_right">
+							<view>本期话题：</view>
+							<view>{{topic}}</view>
+						</view>
+						<image bindtap="playerBack" class="player_huati_box_right_back" src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/goin.png"></image>
+					</view>
+					<!-- 话题 -->
+					<view wx:if="{{!huatiShow}}" class="player_item player_huati" bindtap="huaTiBtn">
+						<image src="../static/huati2.png"></image>
+						<view style="color:#DABC55;">话题</view>
+					</view>
+				</block>
+			</block>
+			<!-- 上面界面 -->
+			<view class="player_top">
+				<!-- 左边 -->
+				<view class="player_top_left" catchtap="anchorBtn">
+					<image class="player_top_left_icon" src="{{item.icon}}"></image>
+					<view class="player_top_left_view">
+						<view class="player_top_left_v_item">{{item.name}}</view>
+						<view class="player_top_left_v_item player_top_left_v_item_id">Fm：{{item.roomID}}</view>
+					</view>
+					<view wx:if="{{followShow}}" catchtap='followbtn' class="player_top_left_follow player_top_left_follow_act}}">已订阅</view>
+					<view wx:else catchtap='followbtn' class="player_top_left_follow">订阅
+						<!-- 登入按钮 -->
+						<button wx:if="{{info==null}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+					</view>
+				</view>
+				<!-- 右边滚动 -->
+				<view class="player_top_right">
+					<scroll-view class="player_top_right_box" scroll-x="{{true}}" show-scrollbar='{{false}}'>
+						<!--<block wx:for="{{onlineArr}}" wx:key='index'>
+								<view class="player_top_right_box_item">
+									<image bindtap="userBtn" data-item="{{item}}" src='{{item.avatar}}' lazy-load="{{true}}"></image>
+								</view>
+							</block> -->
+						<!-- 主持人界面 -->
+						<block wx:for="{{item.anchor.list}}" wx:key='index'>
+							<view class="index_host">
+								<view class="player_host">
+									<view class="player_host_icon">
+										<image src="{{item.headimg}}"></image>
+									</view>
+									<view class="player_host_view">
+										{{item.anchor}}
+										<!-- <view class="player_host_view_name">{{item.anchor}}</view> -->
+										<!-- <view class="player_host_view_id">{{item.id}}</view> -->
+									</view>
+								</view>
+								<view class="player_host_text {{index%2==0 ?'player_host_text1':'player_host_text2'}}">主持人</view>
+							</view>
+						</block>
+					</scroll-view>
+					<!--<view wx:if="{{onlineArr.length>4}}" class="player_top_right_box_delete" bindtap="goranking">
+							<image src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/right.png"></image>
+						</view> -->
+				</view>
+			</view>
+			<!-- 热度 -->
+			<view class="player_hot">
+				<image class="player_hot_image" src="../static/hot.png"></image>
+				<text>{{onlineHot}}</text>
+			</view>
+			<!-- 频率名称 -->
+			<view class="player_new" bindtap="frequencyBtn">
+				{{item.channel_name}}
+			</view>
+			<!-- 直播时间 -->
+			<view bindtap='audiobtn' style="float:right;margin-right:30rpx;" class="player_new">
+				<image src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/music.gif"></image>
+				<view>{{newTime}}</view>
+			</view>
+			<!-- 在线人数 -->
+			<view class="player_new" style="float:right;">
+				在线：{{onlineNum}}
+			</view>
+			<!-- 右边的按钮 -->
+			<view class="player_right">
+				<view class="player_item player_right_btn" bindtap="dianGeBtn">
+					<image wx:if="{{dgShow}}" src="../static/diange2.png"></image>
+					<image wx:else src="../static/diange.png"></image>
+					<view style="color:{{dgShow?'#DABC55':''}};">点歌</view>
+				</view>
+				<view class="player_item player_right_btn" bindtap="touPiaoBtn">
+					<image wx:if="{{tpShow}}" src="../static/toupiao2.png"></image>
+					<image wx:else src="../static/toupiao.png"></image>
+					<view style="color:{{tpShow ?'#DABC55':''}};">投票</view>
+				</view>
+				<view class="player_item player_right_btn" bindtap="jingCaiBtn">
+					<image wx:if="{{jcShow}}" src="../static/jingcai2.png"></image>
+					<image wx:else src="../static/jingcai.png"></image>
+					<view style="color:{{jcShow?'#DABC55':''}};">竞猜</view>
+				</view>
+				<!--<view class="player_item player_right_btn" bindtap="lianMaiBtn">
+						<image wx:if="{{lianmaiShow}}" src="../static/lianmai2.png"></image>
+							<image wx:else src="../static/lianmai.png"></image>
+							<view style="color:{{lianmaiShow?'#DABC55':''}};">连麦</view>
+					</view> -->
+				<!-- 登入按钮 -->
+				<button wx:if="{{info==null}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+			</view>
+			<!-- 聊天区域 -->
+			<view class="player_chatarea">
+				<scroll-view scroll-y="{{true}}" duration='{{300}}' scroll-top="{{scrollTop}}" show-scrollbar='{{false}}'>
+					<!-- 聊天框 -->
+					<view id="chat" style="width:100%;height:auto;overflow:hidden;">
+						<block wx:for="{{contentArr}}" wx:key='index'>
+							<chat-box bind:chatboxBtn="onChatboxBtn" bind:longchatboxBtn='onLongchatboxBtn' chat-item="{{item}}"></chat-box>
+						</block>
+					</view>
+				</scroll-view>
+			</view>
+			<!-- 弹幕区域 -->
+			<!-- <view class="play_danmu">
+				<block wx:for="{{doommData}}" wx:key="id">
+					<view wx:if="{{item.display}}" class="aon" style="animation:first {{item.time}}s linear forwards;top:{{item.top}}%;">
+						<image class="play_headurl" src="{{item.icon}}"></image>
+						<view class="play_danmu_content" style="color:{{item.color}};">{{item.text}}</view>
+					</view>
+				</block>
+			</view> -->
+			<!-- 点歌置顶 -->
+			<view class="placement" wx:if="{{tipShow}}">
+				<view class="placement_left">
+					<image src="{{tipItem.icon}}"></image>
+				</view>
+				<view class="placement_right">
+					<view class="placement_name">
+						恭喜<text class="placement_text">{{tipItem.name}}</text>点歌成功
+						<text class="placement_text">{{tipItem.text}}</text>
+					</view>
+				</view>
+			</view>
+			<!-- 群系统提示 -->
+			<view class="player_system" wx:if="{{systemShow}}">
+				<system-message system-name="{{systemName}}"></system-message>
+			</view>
+			<!-- 主持人离开 -->
+			<view wx:if="{{leaveShow}}" class="player_leave">
+				主持人已经关闭直播，直播间将在{{leaveNewTime}}s后关闭
+			</view>
+			<!-- @消息提示 -->
+			<view wx:if="{{atShow}}" class="player_at" bindtap='atBtn'>
+				有人@你
+			</view>
+			<!-- 下方界面 -->
+			<view class="player_bottom" style="bottom:{{setBottom}}px;background-color:{{setBottom!=20?'#fff':''}};padding-top:{{setBottom!=20?'5':''}}rpx;padding-bottom:{{setBottom!=20?'5':''}}rpx;">
+				<view class="player_bottom_item">
+					<!-- 弹幕按钮-->
+					<!-- 					<view class="switchView" wx:if='{{setBottom==20}}'>
+						<switch checked="{{switchShow}}" color="#FFD620" bindchange="switchChange" />
+					</view> -->
+					<!-- 输入框 -->
+					<view class="player_bottom_item_input">
+						<input wx:if="{{info!=null}}" placeholder="{{placeholderText}}" placeholder-style="player_bottom_item_input_text player_bottom_act_text"
+						 confirm-type='send' adjust-position='{{false}}' cursor-spacing='{{10}}' maxlength='{{100}}' value="{{content}}"
+						 focus="{{focus}}" fixed="{{true}}" bindfocus="focus" bindblur="blur" bindconfirm='sendCon' />
+						<!-- 当前没有登入 -->
+						<button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo">说点什么吧~</button>
+					</view>
+					<!-- 礼物按钮 -->
+					<view wx:if='{{setBottom==20}}' class="player_bottom_item_liwu" bindtap="liwuBtn">
+							<image src="../static/liwu.png"></image>
+					</view>
+					<!-- 转发 -->
+					<view wx:if='{{setBottom==20}}' class="player_item player_bottom_item_zhuanfa" bindtap="zhuanFaBtn">
+						<image src="../static/zhuanfa2.png"></image>
+						<view style="color:#DABC55;">转发</view>
+						<button open-type='share'></button>
+					</view>
+					<!-- 点赞 -->
+					<view wx:if='{{setBottom==20}}' class="player_item player_bottom_item_zhuanfa" bindtap="dianZanBtn">
+						<image wx:if="{{dzShow}}" src="../static/zan2.png"></image>
+						<image wx:else src="../static/zan.png"></image>
+						<view style="color:{{dzShow?'#DABC55':''}};">点赞</view>
+						<button wx:if="{{info==null}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+					</view>
+				</view>
+			</view>
+			<!-- 礼物播放区域 -->
+			<view class="playliwuView" wx:if="{{playliwuViewShow}}">
+				<image src="{{playliwuViewItem.url}}"></image>
+			</view>
+			<!-- 礼物盒子-->
+			<view class="play_liwu" wx:if="{{liwuShow}}">
+				<!-- top -->
+				<view class="play_liwu_top">
+					<view class="play_liwu_option">
+						<text>送给</text>
+						<!-- 可选的对象 -->
+						<view wx:for="{{optionArr}}" wx:key="{{index}}" 
+							  data-item="{{item}}" 
+							  data-index="{{index}}"
+						      class="play_liwu_option_box {{item.isOption?'play_liwu_option_box_act':''}}" 
+							  bindtap="optionBtn">
+							<image src="{{item.image}}"></image>
+						</view>
+						<text bindtap="wholeBtn" style="float:right;margin-right:25rpx;">全选</text>
+					</view>
+					<!-- 礼物上方的文字 -->
+					<view bindtap="liwuTxtBtn" 
+						  class="liwu_top_text {{index==liwuIndex?'liwu_top_text_act':''}}" 
+						  wx:for="{{liwuTxtArr}}" 
+						  wx:key='{{item.id}}'
+						  data-index='{{index}}'>{{item.text}}</view>
+				</view>
+				<!-- 礼物图标 -->
+				<view class="play_liwu_cen">
+					<swiper class="play_liwu_cen_swiper" indicator-dots="{{true}}" 
+							indicator-color="#aaa" 
+							indicator-active-color="#FFFFFF">
+							<block>
+								<swiper-item>
+									<view bindtap="tubiaoBtn" 
+										data-index="{{index}}"
+										data-item="{{item}}"
+										wx:for="{{liwuArr}}" 
+										wx:key="{{index}}" 
+										class="play_liwu_cen_tupiao {{index==liwuIcon?'play_liwu_cen_tupiao_act':''}}">
+										<view class="liwu_tupiao">
+											<image src="{{item.url}}"></image>
+										</view>
+										<text class="liwu_name">{{item.name}}</text>
+										<text class="liwu_jinbi">{{item.jinbi}}</text>
+									</view>
+								</swiper-item>
+							</block>
+					</swiper>
+				</view>
+				<view class="play_liwu_bot">
+					<view class="play_liwu_bot_left">
+							<image src="../static/bar_1_1.png"></image>
+							<text bindtap="gotoAccount">9999</text>
+							<image bindtap="gotoAccount" src="../static/bar_1.png"></image>
+					</view>
+					<view class="play_liwu_bot_right">
+						<view class="play_liwu_bot_right_big {{isLiwuSendout?'play_liwu_bot_right_big_act':''}}">
+								<view class="play_liwu_bot_right_number" bindtap="numberOptionShowBtn" wx:if="{{liwuType}}">
+									{{numberOption}}
+									<view class="number_option" wx:if="{{isNumberOption}}">
+										<view bindtap="customBtn" class="number_option_item">自定义</view>
+										<view  bindtap="numberoptionBtn" data-item="{{item}}" wx:for="{{numberOptionArr}}" wx:key='{{index}}' 
+										class="number_option_item {{numberOption==item.number?'number_option_item_act':''}}">{{item.number}} {{item.text}}</view>
+									</view>
+								</view>
+								<view bindtap="liwuSendout" class="play_liwu_bot_right_fs {{isLiwuSendout?'play_liwu_bot_right_fs_act':''}}">发送</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

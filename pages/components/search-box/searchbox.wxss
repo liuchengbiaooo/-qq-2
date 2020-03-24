@@ -1,0 +1,75 @@
+/* pages/components/search-box/searchbox.wxss */
+
+.search {
+	width: 100%;
+	height: 85rpx;
+	padding-left: 71rpx;
+	padding-right: 71rpx;
+	padding-top: 5rpx;
+	box-sizing: border-box;
+	display: flex;
+	margin-top:16rpx;
+}
+
+.search_btn {
+	flex:1;
+	height: 70rpx;
+	background-color:#CDCDCD;
+	border-radius: 35rpx;
+	display: flex;
+	color: #B1B1B1;
+}
+
+.search_btn_icon {
+	height: 70rpx;
+	width: 70rpx;
+	padding: 15rpx;
+	box-sizing: border-box;
+}
+
+.search_btn_icon>image {
+	width: 100%;
+	height: 100%;
+}
+
+.search_btn_input {
+	flex: 1;
+	height: 70rpx;
+	line-height: 70rpx;
+	margin-right: 10rpx;
+	font-size: 28rpx;
+	color: #A4A4A4;
+	padding-right:60rpx;
+	position: relative;
+}
+
+.search_btn_input_cancel{
+	height:50rpx;
+	width: 50rpx;
+	position:absolute ;
+	right:0;
+	top:12rpx;
+}
+/* 图片 */
+.search_btn_input_cancel>image{
+	width:100%;
+	height:100%;
+}
+
+.search_btn_input>input {
+	width: 100%;
+	height: 70rpx;
+	line-height: 70rpx;
+	color: #B1B1B1;
+	font-size:24rpx;
+}
+
+.search_cancel{
+	height:70rpx;
+	width:90rpx;
+	font-size:28rpx;
+	text-align: center;
+	line-height:70rpx;
+	color:#F5A238;
+}
+

@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+	  "nav-bar": "/pages/components/nav-bar/navbar",
+	  "chat-box": "/pages/components/chat-box/chatbox",
+	  "zbhd-box":"/pages/components/zbhd-box/zbhdbox",
+	  "system-message":"/pages/components/system-message/systemmessage",
+	  "horse-race-lamp":"/pages/components/horse-race-lamp/horseracelamp",
+	  "personal-box":"/pages/components/personal-box/personalbox",
+	  "notice-box":"/pages/components/notice-box/noticebox",
+	  "end-box":"/pages/components/end-box/endbox"
+  }
+}
+	  

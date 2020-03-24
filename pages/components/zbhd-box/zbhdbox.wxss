@@ -1,0 +1,172 @@
+/* pages/components/zbhd-box/zbhdbox.wxss */
+.zbhd_box{
+	height:200rpx;
+	margin:0 26rpx;
+	display: flex;
+	border-radius:10rpx;
+	overflow: hidden;
+	background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/me03.png) no-repeat;
+	background-size: cover;
+	position: relative;
+}
+.zbhd_box_left{
+	width:195rpx;
+	height:100%;
+	padding:20rpx;
+	box-sizing: border-box;
+	position:relative;
+}
+.zbhd_box_left>image{
+	width:100%;
+	height:100%;
+	display:block;
+	border-radius:10px;
+}
+.zbhd_box_left_ing{
+	position:absolute;
+	bottom:20rpx;
+	left:20rpx;
+	width:155rpx;
+	height:36rpx;
+	font-size:22rpx;
+	color:#C7C7C7;
+	box-sizing:border-box;
+	background:rgba(18,18,18,.65);
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	border-bottom-left-radius:10rpx;
+	border-bottom-right-radius:10rpx;
+}
+/* 栏目 */
+.zbhd_box_right{
+	flex: 1;
+	height:100%;
+	padding-right:190rpx;
+	box-sizing: border-box;
+}
+/* 上 */
+.zbhd_box_right_top{
+	width:100%;
+	height:140rpx;
+	padding-top:20rpx;
+}
+/* 标题 */
+.zbhd_box_right_text{
+	font-size:26rpx;
+	color:#353535;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp:1;
+	overflow: hidden;
+}
+/* 栏目 */
+.zbhd_box_right_type{
+	height:40rpx;
+	width:100%;
+	color:#5F5F5F;
+}
+.zbhd_box_right_type_name{
+	height:40rpx;
+	line-height:40rpx;
+	font-size:24rpx;
+	width: 190rpx;
+	float: left;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp:1;
+	overflow: hidden;
+	font-style: oblique;
+	/* text-transform:uppercase; */
+}
+.zbhd_box_right_type_channel{
+	width:120rpx;
+	height:30rpx;
+	border-radius:15px;
+	text-align: center;
+	line-height:26rpx;
+	float: left;
+	font-size:20rpx;
+	margin-top:7rpx;
+	border:2rpx solid rgba(210,167,60,1);
+	color:#D2A73C;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:1;
+	overflow:hidden;
+	padding:0 5rpx;
+	box-sizing: border-box;
+}
+
+/* 主播名字 */
+.zbhd_box_right_name{
+	font-size:22rpx;
+	color:#898989;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:1;
+	overflow:hidden;
+}
+
+/* 下 */
+.zbhd_box_right_bottom{
+	width:100%;
+	height:40rpx;
+}
+/* 热度 */
+.zbhd_box_right_hot{
+	width:100%;
+	height:40rpx;
+}
+.zbhd_box_right_hot>image{
+	width:20rpx;
+	height:26rpx;
+	display:block;
+	float:left;
+	margin:8rpx 8rpx 0 8rpx;	
+}
+.zbhd_box_right_hot>view{
+	width:100rpx;
+	height:40rpx;
+	display:block;
+	float:left;
+	font-size:24rpx;
+	color:#898989;
+	line-height:46rpx;	
+}
+
+/* 按钮 */
+.zbhd_box_btn_item{
+	position:absolute;
+	right:20rpx;
+	top:70rpx;
+	width:160rpx;
+	height:50rpx;
+	font-size:24rpx;
+	color:#585858;
+	font-weight:bold;
+	background-color:#F1E900;
+	border-radius:25rpx;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	box-sizing:border-box;
+}
+
+.zbhd_box_btn_item>button{
+	position: absolute;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	opacity:0;
+}
+.zbhd_box_btn_time{
+	position: absolute;
+	right:40rpx;
+	bottom:20rpx;
+	color: #898989;
+	font-size:24rpx;
+}

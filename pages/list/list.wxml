@@ -1,0 +1,18 @@
+<!--pages/find/find.wxml-->
+<view class="content">
+	<nav-bar background='url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/bglv.png) repeat-x'
+	 color="#FFFFFF" title="榜单"></nav-bar>
+	<view class="fm" style="top:{{navHeight}}px;">
+		<view class="fm_content" bindtouchmove="move">
+			<include src="../../utils/refreshHeaderView.wxml" />
+			<include src="../../utils/loadMoreFooterView.wxml" />
+			<scroll-view class="scroll_container" scroll-y="true" style="position:absolute;top:{{loadMoreHeight == 0? refreshHeight:-loadMoreHeight}}px;bottom:{{loadMoreHeight}}px;left:0;right:0;"
+			 bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end">
+				<list-nav bind:chooseList="onChooseList"></list-nav>
+				<rank-list bind:order_column="frashData" top-data="{{topData}}" all-data="{{listData}}" list-data="{{listData}}"
+				 select="{{selectType}}" time-status="timeDown"></rank-list>
+				<view wx:if="{{listData.length==0}}" class="append">当前没有数据</view>
+			</scroll-view>
+		</view>
+	</view>
+</view>

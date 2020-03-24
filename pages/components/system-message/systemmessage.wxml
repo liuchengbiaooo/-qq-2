@@ -1,0 +1,4 @@
+<!--pages/components/system-message/systemmessage.wxml-->
+<view class="systemmessage">
+	欢迎<text>{{systemName}}</text>光临直播间
+</view>

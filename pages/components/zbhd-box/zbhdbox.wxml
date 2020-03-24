@@ -1,0 +1,37 @@
+<!--pages/components/zbhd-box/zbhdbox.wxml-->
+<!-- 只显示在线的 -->
+<view class="zbhd_box" catchtap='goPlay'>     
+	<view class="zbhd_box_left">
+		<image catchtap="iconBtn" src="{{zbhdData.icon}}"></image>
+		<view class="zbhd_box_left_ing" wx:if="{{zbhdData.live_status==1}}">直播中</view>
+		<view class="zbhd_box_left_ing" wx:elif="{{zbhdData.live_status==2}}">可预约</view>
+		<view class="zbhd_box_left_ing" wx:elif="{{zbhdData.live_status==0}}">未开播</view>
+	</view>
+	<view class="zbhd_box_right">
+		<!-- 栏目表上方 -->
+		<view class="zbhd_box_right_top">
+			<view class="zbhd_box_right_text">{{zbhdData.title ? zbhdData.title : zbhdData.desc}}</view>
+			<view class="zbhd_box_right_type">
+				<view class="zbhd_box_right_type_name">{{zbhdData.name}}</view>
+				<view class="zbhd_box_right_type_channel">{{zbhdData.channel_name}}</view>
+			</view>
+			<view wx:if="{{zbhdData.anchor}}" class="zbhd_box_right_name">主持人：{{zbhdData.anchor}}</view>
+		</view>
+		<!-- 栏目表下方 -->
+		<view class="zbhd_box_right_bottom">
+			<view class="zbhd_box_right_hot">
+				<image src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/foot_heat.png"></image>
+				<view>{{zbhdData.hot}}</view>
+			</view>
+		</view>
+	</view>
+	<view wx:if="{{zbhdData.live_status==1}}" catchtap='goRoom' class="zbhd_box_btn_item">参与互动</view>
+	<block wx:elif="{{zbhdData.live_status==2}}">
+		<view catchtap='goRoom' class="zbhd_box_btn_item" wx:if="{{zbhdData.is_subscribe==1}}">已预约</view>
+		<view catchtap='goRoom' class="zbhd_box_btn_item" wx:else>预约直播
+			<button wx:if="{{zbhdShow}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+		</view>
+	</block>
+	<view wx:if="{{zbhdData.live_status==1}}" class="zbhd_box_btn_time">今天 {{zbhdData.notice_start}}-{{zbhdData.notice_end}}</view>
+	<view wx:else class="zbhd_box_btn_time">{{zbhdData.nextDate}} {{zbhdData.nextStartTime}}-{{zbhdData.nextEndTime}}</view>
+</view>

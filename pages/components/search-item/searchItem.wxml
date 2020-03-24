@@ -1,0 +1,4 @@
+<!--pages/components/search-item.wxml-->
+<view class="searchlist">
+	<view class="searchItem {{index==i?'searchItem_act':''}}" wx:for="{{searchArr}}" wx:key="{{index}}" data-index='{{index}}' bindtap="searchItem">{{item}}</view>
+</view>

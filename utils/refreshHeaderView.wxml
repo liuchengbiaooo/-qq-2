@@ -1,0 +1,4 @@
+<view class="refresh-block" style="height:{{refreshHeight}}px"> 
+        <image  class="{{loading?'roate':(pull?'':'pull')}}" src="{{loading?'https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/icon_loading.png':'https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/icon_arrow.png'}}"></image>
+        <text  class="refreshing_text" >{{refreshing_text}}</text> 
+</view>

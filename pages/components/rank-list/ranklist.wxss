@@ -1,0 +1,278 @@
+.top_spotBox ,.data_empty{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 38rpx;
+  margin-bottom: 25rpx;
+  text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #DBDBDB;
+  padding: 30rpx 30rpx 80rpx 30rpx;
+  box-sizing: border-box;
+}
+.data_empty{
+  padding:30rpx 30rpx 30rpx 30rpx;
+}
+.top_spot_item {
+  text-align: center;
+}
+
+.crown {
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  display: inline-block;
+  background: url("http://upimg.yangui.xin/crown.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.top_spot_imgBox {
+  width: 138rpx;
+  height: 138rpx;
+  border-radius: 10rpx;
+  margin-top: 68rpx;
+  margin-left: 16rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.top_spot_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.column_name {
+  font-size: 24rpx;
+  margin: 16rpx 0 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */
+  -webkit-box-orient: vertical;
+}
+
+.column_heat {
+  font-size: 20rpx;
+}
+
+.heat_sort {
+  width: 50rpx; 
+  height: 50rpx; 
+  text-align: center;
+  line-height: 50rpx;
+  color: #989898;
+  margin-left:20rpx;
+}
+
+.list_surplus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/rankitem.png) no-repeat;
+  background-size: 100% 100%;
+  width: 93.33333%;
+  height: 122rpx;
+  margin: 0 auto;
+}
+
+.list_left, .list_right {
+  display: flex;
+  align-items: center;
+}
+
+.list_spot_imgBox {
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+  position: relative;
+}
+
+.list_spot_imgBox image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.surplus_column_name {
+  font-size: 24rpx;
+  color:#353535;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */
+  -webkit-box-orient: vertical;
+  padding-right: 10rpx;
+  width: 288rpx;
+}
+
+.surplus_column_heat {
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  /*margin-top: 14rpx;*/
+}
+
+.firstStyle {
+  width: 180rpx;
+  height: 240rpx;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/NO1.png) no-repeat;
+  background-size: 100% 100%;
+  color: #d3980a;
+}
+
+.secondStyle {
+  width: 180rpx;
+  height: 240rpx;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/NO2.png) no-repeat;
+  background-size: 100% 100%;
+  margin-top: 62rpx;
+  margin-bottom: 30rpx;
+  color: #5ca2cd;
+}
+
+.thirdStyle {
+  width: 180rpx;
+  height: 240rpx;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/NO3.png) no-repeat;
+  background-size: 100% 100%;
+  margin-top: 62rpx;
+  margin-bottom: 30rpx;
+  color: #e8891a;
+}
+.light{
+  width: 138rpx;
+  height: 138rpx;
+  position: absolute;
+  left: 4rpx;
+  top: 4rpx;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/light.png) no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.5;
+}
+
+.column_info {
+  margin-top: 4rpx;
+}
+
+.column_upOrdown {
+  width: 50rpx;
+  height: 50rpx;
+  background: url("http://upimg.yangui.xin/up.png") no-repeat;
+  background-size: 100% 100%;
+  margin-right: 20rpx;
+}
+
+.column_status {
+  font-size: 22rpx;
+  border: 1px solid rgb(243, 205, 209);
+  border-radius: 23rpx;
+  width: 106rpx;
+  text-align: center;
+  height: 34rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8rpx;
+}
+
+.column_statusTitle {
+  font-size: 22rpx;
+}
+
+.column_point {
+  width: 14rpx;
+  height: 14rpx;
+  background: #ff6162;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.heatIcon {
+  width: 18rpx;
+  height: 22rpx;
+  display: inline-block;
+  background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/foot_heat.png") no-repeat;
+  background-size: 100% 100%;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.count_down{
+  width: 93.33333%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  /*padding: 14rpx 0;*/
+  padding-bottom: 14rpx;
+  position: relative;
+}
+.count_downName{
+  font-size: 22rpx;
+  color: #8f8f8f;
+}
+.count_downIcon{
+  width: 30rpx;
+  height: 30rpx;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/problem.png) no-repeat;
+  background-size: 100% 100%;
+
+}
+.followersNum{
+  font-size: 20rpx;
+  margin-top: 0rpx;
+}
+.tips{
+  width: 188rpx;
+  height: 80rpx;
+  background: rgba(0,0,0,0.3);
+  position: absolute;
+  color: #fff;
+  font-size: 22rpx;
+  padding: 6rpx 2rpx 6rpx 16rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+}
+.orderStyle{
+  width: 100rpx;
+  max-width: 104rpx;
+  /*height: 32rpx;*/
+  border-radius: 20rpx;
+  font-size: 18rpx;
+  font-weight: bold;
+  text-align: center;
+  /*line-height: 32rpx;*/
+  margin-right: 48rpx;
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.order_column{
+
+  border-radius: 18rpx;
+  font-size: 18rpx;
+  font-weight: bold;
+  color: #585858;
+  background: #F1E900;
+  text-align: center;
+
+
+}
+.order_colbtn{
+  color: #585858;
+  background: #f8db35;
+}
+.ordered{
+  background: #b2b2b2;
+  color: #959595;
+}
+.column_pinlv_name{
+  font-size: 20rpx;
+  color: #808080;
+  line-height: 36rpx;
+}

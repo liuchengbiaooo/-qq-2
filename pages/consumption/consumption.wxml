@@ -1,0 +1,65 @@
+<!--pages/account/account.wxml-->
+<view class="content">
+	<!-- 导航栏 -->
+	<nav-bar background='url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/bglv.png) repeat-x'
+	 color="#FFFFFF" back="{{true}}" iconTheme="white" bindback="handlerGobackClick" title="消费明细"></nav-bar>
+	<view class="fm" style="top:{{navHeight}}px;">
+		<!-- 开始你的表演 -->
+		<view class="fm_content">
+			<view class="consumption_top">
+				<view bindtap="consumptionBtn" class="consumption_top_year">时间筛选区：{{year}}年{{month}}月</view>
+			</view>
+			<!-- 明细 -->
+			<view class="consumption_cencer">
+				<view class="consumption_cencer_item">
+					<view class="consumption_cencer_item_left">
+						<image src="https://gfs-op.douyucdn.cn/dygift/2018/11/27/7f04ea16a4509fb8a2f10acb8fb7d000.gif?x-oss-process=image/format,webp/quality,q_70"></image>
+					</view>
+					<view class="consumption_cencer_item_right">
+						<view>礼物名称</view>
+						<view>送给的对象</view>
+						<view>送礼时间</view>
+					</view>
+					<view class="consumption_cencer_item_price">-100金币</view>
+				</view>
+				<view class="consumption_cencer_item">
+					<view class="consumption_cencer_item_left">
+						<image src="https://gfs-op.douyucdn.cn/dygift/2018/11/27/7f04ea16a4509fb8a2f10acb8fb7d000.gif?x-oss-process=image/format,webp/quality,q_70"></image>
+					</view>
+					<view class="consumption_cencer_item_right">
+						<view>礼物名称</view>
+						<view>送给的对象</view>
+						<view>送礼时间</view>
+					</view>
+					<view class="consumption_cencer_item_price">-100金币</view>
+				</view>
+				<view class="consumption_cencer_item">
+					<view class="consumption_cencer_item_left">
+						<image src="https://gfs-op.douyucdn.cn/dygift/2018/11/27/7f04ea16a4509fb8a2f10acb8fb7d000.gif?x-oss-process=image/format,webp/quality,q_70"></image>
+					</view>
+					<view class="consumption_cencer_item_right">
+						<view>礼物名称</view>
+						<view>送给的对象</view>
+						<view>送礼时间</view>
+					</view>
+					<view class="consumption_cencer_item_price">-100金币</view>
+				</view>
+			</view>
+			
+			<view class="consumption_bottom" wx:if="{{pickShow}}">
+			  <picker-view indicator-style="height: 50px;" style="width:100%;height:300px;" value="{{value}}" bindchange="bindChange">
+			    <picker-view-column>
+			      <view wx:for="{{years}}" wx:key="{{index}}" style="line-height:50px;text-align: center;">{{item}}年</view>
+			    </picker-view-column>
+			    <picker-view-column>
+			      <view wx:for="{{months}}" wx:key="{{index}}" style="line-height:50px;text-align: center;">{{item}}月</view>
+			    </picker-view-column>
+			    <!-- <picker-view-column>
+			      <view wx:for="{{days}}" wx:key="{{index}}" style="line-height: 50px">{{item}}日</view>
+			    </picker-view-column> -->
+			  </picker-view>
+			</view>
+		</view>
+	</view>
+</view>
+			 

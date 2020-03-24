@@ -1,0 +1,154 @@
+<!--pages/datapage/datapage.wxml-->
+<view class="content">
+	<nav-bar color="#fff" background='url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/bglv.png) repeat-x'
+	 iconTheme="white" title="{{pageTitle}}" back="{{true}}" home="{{homeBack}}" bindback="handlerGobackClick" bindhome="handlerGohomeClick"></nav-bar>
+	<view class="fm" style="top:{{navHeight}}px;">
+		<!-- 开始你的表演 -->
+		<view class="fm_content">
+			<!-- 直播流 -->
+			<video id="videoplayer" wx:if="{{isFm}}" style="height:50rpx;width:50rpx;position:absolute;top:0rpx;left:-50rpx;"
+			  custom-cache="{{false}}" src="{{Fm_urls}}"></video>
+
+			<scroll-view class="scroll_columnIndex" scroll-y="true">
+				<view class="pageTop">
+					<view class="pageInfo">
+						<!--栏目，频率，广播主页头像 start pageType=1栏目 2频率 3广播-->
+						<view class="pageImgBox">
+							<image class="pageImg" src="{{pageType == 1 ?pageData.icon : pageType == 2 ?pageData.channel.icon:pageType ==3?pageData.station.icon:''}}"></image>
+						</view>
+						<!--栏目，频率，广播主页头像 end-->
+
+						<!--栏目，频率，广播主页名称 start-->
+						<view class="pageName">{{pageType == 1 ? pageData.name:pageType == 2 ? pageData.channel.station_name:pageType == 3?pageData.station.name:''}}</view>
+						<!--栏目，频率，广播主页名称 end-->
+
+						<!--栏目 id start-->
+						<view class="fmID" wx:if="{{pageType == 1 ? true:false}}">fm:{{pageData.roomID}}</view>
+						<!--栏目id end-->
+
+						<!-- 栏目所属频率 start-->
+						<view class="belong_pinlv" data-channel="{{pageData.channel_id}}" data-station="{{pageData.channel.station_id}}"
+						 bindtap="toPinlv" wx:if="{{pageType == 1 || pageType == 2? true:false}}">{{pageType == 1? pageData.station_name:pageType == 2? pageData.channel.station_name:''}}</view>
+						<!--栏目所属频率 end-->
+
+						<!-- 主持人 start-->
+						<view class="player" wx:if="{{pageType == 1 ? true:false}}">主持人:<text wx:for="{{pageData.anchor.list}}"
+							 wx:for-index="index" wx:for-item="item" wx:key="item.id" style="display: inline-block; margin-left: 4rpx">{{item.anchor}}</text>
+						</view>
+						<!--主持人 end-->
+
+						<!-- 栏目粉丝，频率和广播热度  栏目，广播，频率所在地区 start-->
+						<view class="follow_area" style="margin-top: {{pageType == 2? '12rpx':pageType == 3 ? '16rpx':''}}">
+							<view class="followers" wx:if="{{pageType == 1 ? true:false}}">粉丝: {{pageData.follow}}</view>
+							<view class="column_heat" wx:if="{{pageType == 2 || pageType == 3 ? true:false}}">热度{{pageType == 2?pageData.channel.hot:pageType == 3? pageData.station.hot:''}}</view>
+							<view class="area">地区: {{pageType == 1? pageData.province:pageType == 2? pageData.channel.province:pageType  == 3 ? pageData.station.province:''}}</view>
+						</view>
+						<!--栏目粉丝，频率和广播热度  栏目，广播，频率所在地区 end-->
+
+						<!--全国前十广播和频率标签 start-->
+						<view class="broadcast_title" wx:if="{{(pageType == 2 || pageType == 3) && isTopten ? true:false}}"></view>
+						<!--全国前十广播和频率标签 end-->
+
+						<!--栏目订阅 start-->
+						<view wx:if="{{pageType == 1?true:false}}" class="order_column {{ pageData.is_follow == 1 ? 'ordered':'order_colbtn'}}"
+						 data-columnid="{{pageData.room_id}}" bindtap="order_column">{{ pageData.is_follow == 1 ? '已订阅':'订阅'}}
+							<!-- 登入按钮 -->
+							<button wx:if="{{info==null}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+						</view>
+						<!--栏目订阅 end-->
+					</view>
+				</view>
+
+				<!--栏目，频率，广播描述 start-->
+				<view class="page_introduce">
+					{{pageType == 1? pageData.desc:pageType == 2? pageData.channel.desc:pageType == 3?pageData.station.desc:''}}
+				</view>
+				<!--栏目，频率，广播描述 end-->
+				<!-- 栏目状态 0：未开启 ， 1：直播中，2：预告中 start-->
+				<view wx:if="{{pageType == 1 ? true:false}}" style="display: {{pageData.live_status == 0 || pageData.live_status == -1? 'none' : ''}}" class="column_status {{pageData.live_status == 1?'column_status_live': pageData.live_status == 2?'column_status_yuyue':''}}">
+					<view class="column_statusLeft">
+						<view class="column_statusTitle columnTitle_commonStyle">
+							{{pageData.live_status == 1?"正在直播":pageData.live_status == 2?"直播预告":""}}:{{pageData.name}}
+						</view>
+						<view class="column_statusHeat">
+							<text class="heatFont">热度:</text>
+							{{pageData.hot}}
+						</view>
+						<view class="column_status_time" wx:if="{{false}}">
+							<text class="column_status_timefont">时间 {{notice_start}}--{{notice_end}}</text>
+						</view>
+					</view>
+					<view class="column_statusRight">
+						<view class="column_btn" bindtap="columntoplay" data-item="{{pageData}}" data-id="{{pageData.room_id}}"
+						 data-status="{{pageData.live_status}}">{{pageData.live_status == 1?'参与互动': pageData.live_status == 2 && pageData.is_subscribe == 1?'已预约':pageData.live_status == 2 && pageData.is_subscribe == 0?'预约直播':''}}
+							<block wx:if="{{pageData.live_status!=1}}">
+								<!-- 登入按钮 -->
+								<button wx:if="{{info==null}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+							</block>
+						 </view>
+					</view>
+				</view>
+				<!-- 栏目状态 0：未开启 ， 1：直播中，2：预告中 end-->
+				<!-- 栏目详情 频率页栏目列表 广播页频率列表 start-->
+				<view class="pageDetail">
+					<!-- 栏目详情 频率页栏目列表 广播页频率列表 title start-->
+					<view class="titleBox">
+						<view class="pagetitle">{{pageType == 1? '栏目详情': pageType == 2? '栏目列表':pageType == 3? '频率列表':''}} </view>
+						<view class="titleright" wx:if="{{pageType == 2 ||pageType == 3 ? true:false}}">{{pageType ==2 ? "栏目" :pageType ==3 ? "频率":""}}：{{pageType == 2?pageData.list.length:pageType == 3?pageData.list.length:''}}</view>
+					</view>
+					<!-- 栏目详情 频率页栏目列表 广播页频率列表 title end-->
+
+					<!-- 栏目详情页 栏目时间列表 start-->
+					<view class="pageTime" wx:if="{{pageType == 1? true:false}}">栏目时间:每天 {{pageData.notice_start}}-{{pageData.notice_end}}</view>
+					<!-- 栏目详情页 栏目时间列表 end-->
+
+					<view class="playerList">
+						<view class="playerItem" wx:for="{{pageType == 1?pageData.anchor.list : pageType == 2? pageData.list:pageType == 3?pageData.list:''}}"
+						 wx:for-index="index" wx:for-item="item" wx:key="item.id">
+							<view class="column_content">
+								<!-- 频率页栏目列表  start-->
+								<view class="playeritemImgBox" data-img="{{pageType == 1?item.headimg:''}}">
+									<image class="playeritemImg" src="{{pageType == 1?item.headimg:pageType ==  2? item.icon:pageType == 3?item.icon:''}}"></image>
+								</view>
+								<!-- 频率页栏目列表  end-->
+								<view class="pageDesc">
+									<!-- 栏目页主持人列表名称  频率页栏目列表的名称 广播页频率列表名称 start -->
+									<view class="playerName">{{pageType == 1? item.anchor:pageType == 2?item.channel_name:pageType == 3?item.name:''}}</view>
+									<!-- 栏目页主持人列表名称  频率页栏目列表的名称 广播页频率列表名称  end-->
+
+									<!-- 频率页栏目时间  start-->
+									<view class="column_time" wx:if="{{pageType == 2 ? true :false}}">{{pageType == 2 ? item.notice_start : ''}} ~
+										{{pageType == 2? item.notice_end:''}}</view>
+									<!-- 频率页栏目时间  end-->
+
+									<!-- 频率页栏目主持人  start-->
+									<view class="column_author" wx:if="{{pageType == 2 ? true:false}}">主持人：{{item.anchor}}</view>
+									<!-- 频率页栏目主持人  end-->
+
+									<!-- 广播页频率列表热度  start-->
+									<view class="pinlvList_heat" wx:if="{{pageType == 3 ? true :false}}" style="margin-top: 24rpx">热度: {{item.hot}}</view>
+									<!-- 广播页频率列表热度  end-->
+
+									<!-- 栏目页主持人主持栏目描述  start-->
+									<text class="column_desc" wx:if="{{pageType == 1 ? true:false}}">{{item.desc}}</text>
+									<!-- 栏目页主持人主持栏目描述  end-->
+								</view>
+							</view>
+							<!-- 频率页栏目列表  start-->
+							<view class="column_listen_box" wx:if="{{pageType == 2 ? true:false}}">
+								<view class="column_listen_btn" bindtap="pinlvtoplay" data-item="{{item}}" data-status="{{item.live_status}}"
+								 data-id="{{item.room_id}}">{{item.live_status == 1? '参与互动':item.live_status == 2 && item.is_subscribe == 1 ?'已预约':item.live_status == 2 && item.is_subscribe == 0 ?'预约直播':''}}</view>
+							</view>
+							<!-- 频率页栏目列表 end-->
+						</view>
+					</view>
+				</view>
+				<!-- 栏目详情 频率页栏目列表 广播页频率列表end-->
+				<view class="follow">
+					<button open-type="share">分享</button>
+				</view>
+			</scroll-view>
+		</view>
+
+	</view>
+</view>

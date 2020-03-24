@@ -1,0 +1,40 @@
+<!--pages/components/chat-box/chatbox.wxml-->
+
+<view class="chatbox" wx:if="{{chatItem.type=='system'}}">             
+	<view class="chatbox_system">
+			系统消息：{{chatItem.content}}
+	</view>
+</view>
+<view class="chatbox" wx:elif="{{chatItem.type=='gift'}}">             
+	<view class="chatbox_left">
+		<view class="chatbox_left_icon" bindlongpress="longchatboxBtn" bindtap="chatboxBtn" data-item="{{chatItem}}">
+			<image src="{{chatItem.avatar}}"></image>
+		</view>
+	</view>
+	<view class="chatbox_right">
+		<view class="chatbox_right_top">
+			<view wx:if="{{chatItem.isTitle}}" class="chatbox_right_top_bq">{{chatItem.title}}</view>
+			<text>{{chatItem.nick}}</text>
+		</view>
+		<view class="chatbox_right_bouttom" style="color:{{chatItem.color}};">
+			送出了{{chatItem.content.name}}
+			<!-- <image src="{{chatItem.content.url}}"></image> -->
+		</view>
+	</view>
+</view>
+<view class="chatbox" wx:else>
+	<view class="chatbox_left">
+		<view class="chatbox_left_icon" bindlongpress="longchatboxBtn" bindtap="chatboxBtn" data-item="{{chatItem}}">
+			<image src="{{chatItem.avatar}}"></image>
+		</view>
+	</view>
+	<view class="chatbox_right">
+		<view class="chatbox_right_top">
+			<view wx:if="{{chatItem.isTitle}}" class="chatbox_right_top_bq">{{chatItem.title}}</view>
+			<text>{{chatItem.nick}}</text>
+		</view>
+		<view class="chatbox_right_bouttom" style="color:{{chatItem.color}};">
+			{{chatItem.text}}
+		</view>
+	</view>
+</view>

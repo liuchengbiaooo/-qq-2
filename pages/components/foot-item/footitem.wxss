@@ -1,0 +1,118 @@
+/* pages/components/foot-item/footitem.wxss */
+.itemBox{
+  padding: 25rpx 0 21rpx 20rpx; 
+  display: flex;
+  font-family: "SourceHanSansCN Medium";
+  /*align-items: center;*/
+  width: 93.3333%;
+  margin: 0 auto;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/footitem.png) no-repeat;
+  background-size: 100% 100%;
+}
+.itemimgBox{
+  width: 153rpx;
+  height: 148rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.radioStatus{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30rpx;
+  color: #ffffff;
+  background: rgba(0,0,0,0.5);
+  font-size: 16rpx;
+  text-align: center;
+  line-height: 30rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.itemImg{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.listen_heat{
+  width: 18rpx;
+  height: 28rpx;
+  display: inline-block;
+  background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/foot_heat.png") no-repeat;
+  background-size: 100% 100%;
+  margin-right: 10rpx;
+}
+.foot_listen{
+  width:147rpx;
+  height: 50rpx;
+  background: #eade00;
+  font-size: 24rpx;
+  color: #585858;
+  border-radius: 30rpx;
+  text-align: center;
+  line-height: 50rpx;
+  /*background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/listen_btn.png") no-repeat;*/
+  /*background-size: 100% 100%;*/
+  margin: auto 0;
+  margin-left: 24rpx;
+}
+.foot_column_title{
+  font-size: 26rpx;
+  font-family: "SourceHanSansCN Medium";
+  color: #353535;
+  width: 298rpx;
+  white-space:nowrap;/* 规定文本是否折行 */  
+  overflow: hidden;/* 规定超出内容宽度的元素隐藏 */
+  text-overflow: ellipsis;
+}
+.foot_column{
+  font-size: 24rpx;
+  font-family: "SourceHanSansCN Medium";
+  color: #5f5f5f;
+}
+.foot_heat{
+  font-size: 20rpx;
+  color: #898989;
+  font-family: "SourceHanSansCN Medium";
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.foot_player{
+  font-size: 20rpx;
+  color: #898989;
+  font-family: "SourceHanSansCN Medium";
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+.foot_column_info{
+  margin-left: 30rpx; 
+}
+.hideShawer{
+  margin-top: -8rpx;
+}
+.item_stationBox{
+  height:26rpx;
+  font-size: 16rpx;
+  color: #d2a73c;
+  border: 1px solid #d2a73c;
+  border-radius: 30rpx;
+  text-align: center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0 8rpx;
+  margin-top: 12rpx;
+  margin-left: 40rpx;
+}
+.foot_pinlv_station{
+  display: flex;
+  flex-direction: row;
+}
+.authortext{
+
+}

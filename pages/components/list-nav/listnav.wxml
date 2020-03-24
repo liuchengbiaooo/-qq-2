@@ -1,0 +1,12 @@
+
+<view class="listnavBox">
+  <view class="list_nav">
+    <view class="nav_common_Style {{activeStatus == 'heat'? activeStyle:''}}" style="border-right:none;" data-type="heat" bindtap="chooseList">
+      <text>热度榜</text>
+    </view>
+    <view class="nav_common_Style {{activeStatus== 'subscribe'? activeStyle:''}}" data-type="subscribe" bindtap="chooseList">
+      <text>订阅榜</text>
+    </view>
+  </view>
+  <button class="shareBtn" open-type="share"></button>
+</view>

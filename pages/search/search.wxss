@@ -1,0 +1,71 @@
+/* pages/search/search.wxss */
+.search_item{
+	height:80rpx;
+	width:100%;
+	font-size:28rpx;
+	line-height:80rpx;
+	padding-left:34rpx;
+	padding-right:20rpx;
+	box-sizing: border-box;
+	color:#8B8B8B;
+}
+.search_item_box{
+	margin-left:32rpx;
+	margin-right:32rpx;
+	height:auto;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	padding:15rpx;
+	box-sizing: border-box;
+}
+.search_item_cancel{
+	float:right;
+	padding:0 20rpx;
+	color:#A4A4A4;
+	font-weight:500;
+	box-sizing: border-box;
+	font-size:24rpx;
+}
+.search_item_box_li{
+	font-size:28rpx;
+	display: inline-block;
+	padding:8rpx 10px;
+	color:#A4A4A4;
+	margin-right:15rpx;
+	border-radius:25rpx;
+	margin-bottom:20rpx;
+	background-color:#f6f6f6;
+}
+.search_item_box_li_act{
+	color:#FFA20D;
+	background-color:#FF3030;
+}
+
+/* 列表 */
+.list{
+	position: absolute;
+	left:0;
+	top:85rpx;
+	bottom: 0;
+	right:0;
+}
+.like_list{
+	box-sizing: border-box;
+	padding-bottom:20rpx;
+}
+.list_view{
+	width:100%;
+	height:100%;
+	box-sizing: border-box;
+}
+.fm_content_list{
+	box-sizing: border-box;
+}
+
+.list_no{
+	height:80rpx;
+	width:100%;
+	text-align: center;
+	line-height:80rpx;
+	font-size:28rpx;
+}

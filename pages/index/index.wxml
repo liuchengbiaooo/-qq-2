@@ -1,0 +1,66 @@
+<!--pages/index.wxml-->
+<view class="content">
+	<!-- 导航栏 -->
+	<nav-bar background='url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/bglv.png) repeat-x'
+	 searchBar="{{true}}" bindsearch='search' bindgoClassification='onGoClassification'></nav-bar>
+	<view class="fm" style="top:{{navHeight}}px;">
+		<!-- 开始你的表演 -->
+		<view class="fm_content" bindtouchmove="move">
+			<include src="../../utils/refreshHeaderView.wxml" />
+			<include src="../../utils/loadMoreFooterView.wxml" />
+			<scroll-view class="scroll_container" scroll-y="true" style="position:absolute;top:{{loadMoreHeight == 0? refreshHeight:-loadMoreHeight}}px;bottom:{{loadMoreHeight}}px;left:0;right:0;"
+			 bindscroll="scroll" bindscrolltolower="lower" bindscrolltoupper="upper" bindtouchstart="start" bindtouchend="end">
+				<!-- 本地 -->
+				<view wx:if="{{num==0}}" style="width:100%;height:100%">
+					<!-- 轮播图 -->
+					<swipe-box wx:if="{{advertArr.length>0}}" bindswipeBtn="onSwipeBtn" advert-arr="{{advertArr}}"></swipe-box>
+					<!-- 定位 -->
+					<view class="location">
+						<block wx:if="{{locationTxt=='暂未开启定位'}}">
+							<image src="../static/location2.png"></image>
+							<text style="color:{{locationTxt=='暂未开启定位'?'#ED9898':'#40C433'}};" bindtap="toSetting">{{locationTxt}}</text>
+						</block>
+						<block wx:else>
+							<image src="../static/location.png"></image>
+							<text style="color:{{locationTxt=='暂未开启定位'?'#ED9898':'#40C433'}};" bindtap="location">{{locationTxt}}</text>
+						</block>
+					</view>
+					<!-- 直播盒子 -->
+					<block wx:for="{{liveArr}}" wx:key='{{index}}'>
+						<zbhd-box zbhd-show="{{zbhdShow}}" item-data="{{item}}" bind:goRoom='onGoRoom'></zbhd-box>
+					</block>
+				</view>
+				<!-- 关注 -->
+				<view wx:else style="width:100%;height:100%">
+					<view wx:if="{{isShow}}" class="login">
+						<!-- 图片 -->
+						<view wx:if="{{loginNot}}" class="login_img">
+							<image src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/unauthorized.png" />
+						</view>
+						<view wx:else class="login_img">
+							<image src="https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/notfollowed.png" />
+						</view>
+						<!-- 当前没有登入 -->
+						<view wx:if="{{loginNot}}" class="login_wenzi_big">
+							<view class="login_wenzi">你还没有授权哦!</view>
+							<view class="login_wenzi" style="color:#76A835;font-size:24rpx;">点击授权</view>
+							<button open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button> 
+						</view>
+						<!-- 当前没有关注 -->
+						<view wx:if="{{followNot}}" class="login_wenzi_big">
+							<view class="login_wenzi">您还没有关注/预约任何内容哦!</view>
+						</view>
+					</view>
+					<!-- 大家都在听 -->
+					<view class="login_border">
+						<view></view>{{Text}}<view></view>
+					</view>
+					<!-- 直播盒子 -->
+					<block wx:for="{{liveArr}}" wx:key='{{index}}'>
+						<zbhd-box zbhd-show="{{zbhdShow}}" item-data="{{item}}" bind:goRoom='onGoRoom'></zbhd-box>
+					</block>
+				</view>
+			</scroll-view>
+		</view>
+	</view>
+</view>

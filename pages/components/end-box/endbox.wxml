@@ -1,0 +1,12 @@
+<!--pages/components/end-box/endbox.wxml-->
+<view class="endbox">
+	<view class="endbox_text">直播已结束</view>
+	<image class="endbox_image" src="{{itemData.icon}}"></image>
+	<view class="endbox_name">{{itemData.name}}</view>
+	<view wx:if="{{followShow}}" catchtap='followbtn' class="player_top_left_follow player_top_left_follow_act}}">已订阅</view>
+	<view wx:else catchtap='followbtn' class="player_top_left_follow">订阅</view>
+	<!-- 大家都在听 -->
+	<view class="login_border" >
+		<view></view>看看其他的栏目<view></view>
+	</view>
+</view>

@@ -1,0 +1,41 @@
+/* pages/components/list-nav/listnav.wxss */
+.list_nav{
+    display:flex;
+    justify-content: center;
+    width: 393rpx;
+    margin: 22rpx auto 0;
+    border: 1px solid #e0990b;
+    border-radius: 16rpx;
+    overflow: hidden;
+
+}
+.listnavBox{
+    width: 100%;
+    /*margin-top: 36rpx;*/
+    display: flex;
+    position: relative;
+}
+.nav_common_Style{
+    font-size: 30rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #e0990b;
+    height: 64rpx;
+    line-height: 64rpx;
+    flex-grow: 1;
+    text-align: center;
+    border-radius: 12rpx;
+}
+.nav_active_style{
+    background:#e0990b;
+    color: #fff;
+}
+.shareBtn{
+    width: 60rpx;
+    height: 60rpx;
+    background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/list_share.png") no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    right: 28rpx;
+    top: 28rpx;
+}

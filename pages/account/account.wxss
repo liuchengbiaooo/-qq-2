@@ -1,0 +1,142 @@
+/* pages/account/account.wxss */
+.accountView_top{
+	width:100%;
+	height:150rpx;
+}
+.accountView_content{
+	width: 100%;
+	position: absolute;
+	top:150rpx;
+	bottom: 0;
+	left:0;
+	right:0;
+	padding:15rpx;
+	box-sizing: border-box;
+}
+.accountView_top_caifu{
+	width:100%;
+	height:100rpx;
+	padding: 0 15rpx;
+	box-sizing: border-box;
+	display:flex;
+}
+.accountView_top_text{
+	height:50rpx;
+	width:100%;
+	padding: 0 15rpx;
+	box-sizing: border-box;
+}
+.accountView_top_text>text{
+	line-height:50rpx;
+	font-size:24rpx;
+}
+.accountView_top_caifutext{
+	width:80rpx;
+	height:100%;
+	padding-top:30rpx;
+	box-sizing: border-box;
+}
+.accountView_top_caifutext>text{
+	display: block;
+	width:100%;
+	height:40rpx;
+	text-align: center;
+	line-height:40rpx;
+	color: #fff;
+	background-color:red;
+	font-size: 28rpx;
+}
+.accountView_top_caifujindu{
+	flex: 1;
+	height:100%;
+	margin-left:20rpx;
+	padding-top:20rpx;
+	box-sizing: border-box;
+}
+.accountView_top_caifujindu_top{
+	height:40rpx;
+	width:100%;
+	display: flex;
+}
+.accountView_top_caifujindu_top_text{
+	font-size:28rpx;
+	width:50rpx;
+	height:100%;
+}
+.accountView_top_caifujindu_top_tiao{
+	height:100%;
+	flex:1;
+	background-color: #000;
+	border-radius:15rpx;
+	overflow: hidden;
+}
+.accountView_top_caifujindu_bottom{
+	width:100%;
+	height:40rpx;
+	line-height:40rpx;
+	text-align: center;
+	font-size:24rpx;
+}
+.accountView_content_title{
+	width:100%;
+	height:80rpx;
+	line-height:80rpx;
+	font-size:32rpx;
+}
+.accountView_content_view{
+	width:100%;
+	height: auto;
+	overflow: hidden;
+}
+.accountView_content_viewbox{
+	width: 30%;
+	height: 200rpx;
+	float: left;
+	border:2rpx solid #000;
+	margin-top:15rpx;
+}
+.accountView_content_viewbox:nth-child(3n-1){
+	margin-left:5%;
+	margin-right:5%;
+}
+.accountView_content_viewboxtop{
+	width:100%;
+	height:100rpx;
+	text-align: center;
+	line-height: 150rpx;
+	font-size:32rpx;
+	text-decoration: line-through;
+}
+.accountView_content_viewboxbottom{
+	width:100%;
+	height:100rpx;
+	text-align: center;
+	line-height:50rpx;
+	font-size:28rpx;
+}
+.accountView_content_viewbox_act{
+	border: 2rpx solid red;
+}
+.accountView_content_chongzhi{
+	width:100%;
+	height:100rpx;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color:#aaa;
+	color: #fff;
+	line-height: 100rpx;
+	text-align: center;
+	font-size:32rpx;
+}
+.accountView_content_chongzhi_act{
+	background-color:red;
+}
+.accountView_content_shuoming{
+	width: 100%;
+	height:auto;
+	overflow: hidden;
+	text-align: center;
+	line-height: 50rpx;
+	font-size:28rpx;
+}

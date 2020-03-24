@@ -1,0 +1,413 @@
+@import '../../utils/refreshView.wxss';
+
+.userheadIconBox {
+  width: 141rpx;
+  height: 141rpx;
+  background: #fff;
+  /* background-size: 100% 100%; */
+  border-radius: 50%;
+  padding: 10rpx;
+}
+
+.userheadIcon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user_nickname {
+  font-size: 34rpx;
+}
+
+.userInfo_left {
+  display: flex;
+  align-items: center;
+}
+
+.nick_idBox {
+  margin-left: 21rpx;
+  margin-top: 10rpx;
+}
+
+.user_id {
+  line-height: 36rpx;
+  color: #8a8a8a;
+  font-size: 22rpx;
+}
+
+.user_dataBox {
+  /*display: flex;*/
+  height: 94rpx;
+  margin-top: 22rpx;
+}
+
+.userNum_style {
+  font-size: 22rpx;
+  font-weight: 500;
+  margin-left: 6rpx;
+  color: #8a8a8a;
+}
+.user_dataIcon{
+  width: 43rpx;
+  height: 37rpx;
+  margin: 0 auto;
+  background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/dingyue.png") no-repeat;
+  background-size: 100% 100%;
+
+}
+.user_following{
+  color: #8a8a8a;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+}
+
+.user_followers {
+  margin-left: 24rpx;
+}
+
+.userInfoBox {
+  padding: 30rpx 0 30rpx 60rpx;
+  /*border-bottom: 4rpx solid #f8f8f6;*/
+  display: flex;
+  justify-content: space-between;
+  margin-right: 120rpx;
+}
+
+.viewTitle {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.viewMore {
+  color: #c5c5c5;
+  font-size: 24rpx;
+  margin-right: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.viewMoreIcon {
+  width: 30rpx;
+  height: 30rpx;
+  display: inline-block;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/me_back.png) no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+  margin-left: 8rpx;
+}
+
+.myfootprint {
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+
+.viewItem {
+  width: 350rpx;
+  display: flex;
+  height: 141rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20rpx 18rpx 18rpx 15rpx;
+  /* margin-left: 26rpx; */
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/history_item.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.column_imgBox {
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 10rpx;
+}
+
+.column_img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.column_name {
+  font-size: 24rpx;
+  color: #6c6c6c;
+  width: 150rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.frequency_name {
+  text-align: center;
+  border-radius: 18rpx;
+  margin: 10rpx 0;
+  width: 82rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  padding: 8rpx 0;
+  font-size: 16rpx;
+  color: #d2a73c;
+  border: 1px solid #d2a73c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pinlv {
+  display: inline-block;
+  height: 24rpx;
+  line-height: 24rpx;
+}
+
+.compere {
+  font-size: 14rpx;
+  color: #5f5f5f;
+}
+
+.column_info {
+  /* padding-top: 6rpx; */
+  margin-left: 15rpx;
+}
+
+.view_scrollView {
+  width: 100%;
+  padding: 26rpx 0;
+  white-space: nowrap;
+}
+
+.itemBox {
+  display: flex;
+  /*flex-wrap: wrap;*/
+  /*justify-content: space-around;*/
+  /*!* flex-direction: column; *!*/
+}
+
+.me_top {
+  font-family: SourceHanSansCN Medium;
+}
+
+.footprintIcon {
+  width: 40rpx;
+  height: 40rpx;
+  display: inline-block;
+  background: url(https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/history.png) no-repeat;
+  background-size: 100% 100%;
+  margin-right: 12rpx;
+}
+.address{
+  font-size: 26rpx;
+  color: #333;
+}
+.viewContent_Scroll{
+  margin-top: 20rpx;
+}
+
+.loginBtnBox{
+  width: 100%;
+  position: fixed;
+  bottom: 352rpx;
+  margin: 0 auto;
+}
+.loginBtn{
+  width: 48.9333%;
+  /*height: 58rpx;*/
+  color: #fff;
+  background: #d0a850;
+  font-family: SourceHanSansCN Medium;
+  border-radius: 36rpx;
+  font-weight: normal;
+  font-size: 32rpx;
+  /*line-height: 58rpx;*/
+  margin-top: 100rpx;
+}
+
+.itemCon{
+  width: 93.3333%;
+  margin: 0 auto;
+  padding: 22rpx 0 20rpx 24rpx;
+  background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/footitem.png ") no-repeat;
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.me_itemImgBox{
+  width: 154rpx;
+  height: 154rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+.radioStatus{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30rpx;
+  color: #ffffff;
+  background: rgba(0,0,0,0.5);
+  font-size: 16rpx;
+  text-align: center;
+  line-height: 30rpx;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.me_itemImg{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.itemName{
+  width: 160rpx;
+  font-size: 26rpx;
+  color: #353535;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+.item_pinlv{
+  /*font-size: 16rpx;*/
+  /*color: #d2a73c;*/
+  /*border: 1px solid #d2a73c;*/
+  /*border-radius: 30rpx;*/
+  /*text-align: center;*/
+  /*padding: 0rpx 6rpx;*/
+  /*margin-top: 8rpx;*/
+  /*display:flex;*/
+  /*justify-content:center;*/
+  /*align-items:center;*/
+  font-size:24rpx;
+  width:158rpx;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  overflow:hidden;
+  font-style:oblique;
+
+}
+.belong_station_pinlv{
+  display: flex;
+  flex-direction: row;
+}
+.item_stationBox{
+  height:26rpx;
+  font-size: 16rpx;
+  color: #d2a73c;
+  border: 1px solid #d2a73c;
+  border-radius: 30rpx;
+  text-align: center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0 8rpx;
+  margin-top: 8rpx;
+  margin-left: 15rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150rpx;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+}
+.me_leftCon{
+  display: flex;
+
+}
+.item_player{
+  color: #898989;
+  font-size: 20rpx;
+  margin-top: 12rpx;
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+
+}
+.me_info{
+  margin-left: 22rpx;
+}
+.me_Btn{
+    width: 148rpx;
+  height: 50rpx;
+  border-radius: 30rpx;
+  background: #f0e800;
+  color: #585858;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 15rpx;
+}
+.item_heat_icon{
+  width:18rpx;
+  height:28rpx;
+  display:inline-block;
+  background:url( "https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/foot_heat.png" ) no-repeat;
+  background-size:100% 100%;
+  margin-right:10rpx;
+}
+.item_heatBox{
+  font-size:20rpx;
+  color:#898989;
+  font-family:"SourceHanSansCN Medium";
+  display:flex;
+  align-items:center;
+  margin-top:10rpx;
+
+}
+.logoBox{
+  width: 100%;
+  margin: 0 auto 0;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+.logo{
+  width: 360rpx;
+  height: 360rpx;
+  background: url("https://bkt-common-wxapp-1254255441.cos.ap-guangzhou.myqcloud.com/play/loginLogo.png") no-repeat;
+  background-size: 100% 100%;
+  margin: 0rpx auto 60rpx;
+}
+.login_desc{
+  font-size: 36rpx;
+  color: #4a4a4a;
+}
+.append{display:block;text-align:center;padding: 25rpx 0; font-size: 30rpx;}
+
+
+/* 功能区域 */
+.functionView{
+	width:100%;
+	height:130rpx;
+	display: flex;
+	padding: 0 150rpx 0 10rpx;
+	box-sizing: border-box;
+}
+.functionItem{
+	height:100%;
+	flex: 1;
+}
+.functionItem_image{
+	width:80rpx;
+	height:80rpx;
+	margin: 0 auto;
+}
+.functionItem_image>image{
+	height:100%;
+	width:100%;
+}
+.functionItem_text{
+	height:40rpx;
+	width:100%;
+	text-align: center;
+	line-height:40rpx;
+	color:#aaa;
+	font-size:24rpx;
+}

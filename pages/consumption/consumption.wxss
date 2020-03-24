@@ -1,0 +1,63 @@
+/* pages/account/account.wxss */
+.consumption_top{
+	height: 100rpx;
+	width:100%;
+}
+.consumption_top_year{
+	float:left;
+	height: 100rpx;
+	line-height:100rpx;
+	text-align: center;
+	font-size: 32rpx;
+}
+.consumption_bottom{
+	width: 100%;
+	height:400rpx;
+	position: absolute;
+	bottom:0;
+	left:0;
+}
+.consumption_cencer{
+	width:100%;
+	height: auto;
+}
+.consumption_cencer_item{
+	height:120rpx;
+	width: 100%;
+	background-color: #aaa;
+	margin-bottom: 10rpx;
+}
+.consumption_cencer_item>text{
+	font-size: 24rpx;
+}
+.consumption_cencer_item_left{
+	height: 120rpx;
+	width:120rpx;
+	float: left;
+	padding: 10rpx;
+	box-sizing: border-box;
+}
+.consumption_cencer_item_left>image{
+	width:100%;
+	height:100%;
+}
+.consumption_cencer_item_right{
+	float: left;
+	height: 100%;
+	width: 200rpx;
+	margin-left: 15rpx;
+}
+.consumption_cencer_item_right>view{
+	width: 100%;
+	height: 40rpx;
+	font-size:28rpx;
+	line-height: 40rpx;
+}
+.consumption_cencer_item_price{
+	float: right;
+	height: 120rpx;
+	width: 200rpx;
+	text-align: center;
+	line-height: 120rpx;
+	font-size:28rpx;
+}

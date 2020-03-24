@@ -1,0 +1,12 @@
+/* pages/components/swipe-box/swipebox.wxss */
+.swiper{
+	width:100%;
+	height:350rpx;
+	padding:30rpx 26rpx 13rpx 26rpx;
+	box-sizing: border-box;
+}
+.swiper>swiper-item,.swiper-item{
+	width:100%;
+	height:100%;
+	border-radius:10rpx;
+}
